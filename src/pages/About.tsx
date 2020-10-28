@@ -17,7 +17,7 @@ export const About: React.FC = () => {
         type="button"
         className="btn"
         cy-data="go-back-button"
-        onClick={() => history.push('/')}
+        onClick={() => history.push('/my-vacation-home')}
       >
         Go back
       </button>

@@ -9,10 +9,10 @@ export const Navbar: React.FC = () => (
       </NavLink>
       <ul className="right hide-on-med-and-down">
         <li cy-data="home-nav-link">
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/my-vacation-home">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/my-vacation-home/about">About</NavLink>
         </li>
       </ul>
     </div>
