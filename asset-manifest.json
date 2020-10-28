@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/my-vacation-home/static/css/main.fc6648a7.chunk.css",
+    "main.js": "/my-vacation-home/static/js/main.9ccc449d.chunk.js",
+    "main.js.map": "/my-vacation-home/static/js/main.9ccc449d.chunk.js.map",
+    "runtime-main.js": "/my-vacation-home/static/js/runtime-main.f8a1afde.js",
+    "runtime-main.js.map": "/my-vacation-home/static/js/runtime-main.f8a1afde.js.map",
+    "static/js/2.7e60885a.chunk.js": "/my-vacation-home/static/js/2.7e60885a.chunk.js",
+    "static/js/2.7e60885a.chunk.js.map": "/my-vacation-home/static/js/2.7e60885a.chunk.js.map",
+    "index.html": "/my-vacation-home/index.html",
+    "static/css/main.fc6648a7.chunk.css.map": "/my-vacation-home/static/css/main.fc6648a7.chunk.css.map",
+    "static/js/2.7e60885a.chunk.js.LICENSE.txt": "/my-vacation-home/static/js/2.7e60885a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f8a1afde.js",
+    "static/js/2.7e60885a.chunk.js",
+    "static/css/main.fc6648a7.chunk.css",
+    "static/js/main.9ccc449d.chunk.js"
+  ]
+}
