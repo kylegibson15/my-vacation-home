@@ -6,14 +6,17 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 545,
     margin: theme.spacing(4, 0),
     width: '100%',
-    borderRadius: theme.spacing(3),
-    backgroundColor: theme.palette.grey[200],
+    backgroundColor: 'transparent',
   },
   title: {
     fontSize: 14,
   },
   pos: {
     marginBottom: 12,
+    paddingLeft: 6,
+    color: 'white',
+    width: '50%',
+    borderBottom: '1px solid white',
   },
   media: {
     height: 0,

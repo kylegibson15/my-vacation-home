@@ -1,14 +1,12 @@
 import React, { FC } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { Container, useTheme } from '@material-ui/core'
+import { Container } from '@material-ui/core'
 
-import { About } from './pages/About'
+import CheckOut from './pages/CheckOut'
 import { Home } from './pages/Home'
 
 const App: FC = () => {
-  const theme = useTheme()
-
   return (
     <CssBaseline>
       <BrowserRouter>
@@ -17,12 +15,14 @@ const App: FC = () => {
             display: 'flex',
             alignItems: 'center',
             flexDirection: 'column',
-            backgroundColor: theme.palette.common.white,
+            backgroundImage:
+              'linear-gradient(to bottom, #374364, #364a68, #37506b, #39566e, #3c5c70, #2e6576, #1e6e78, #167675, #27805f, #59863b, #8f8417, #ca761b)',
+            overflowX: 'hidden',
           }}
         >
           <Switch>
             <Route path="/my-vacation-home" component={Home} exact />
-            <Route path="/my-vacation-home/about" component={About} />
+            <Route path="/my-vacation-home/check-out" component={CheckOut} />
           </Switch>
         </Container>
       </BrowserRouter>

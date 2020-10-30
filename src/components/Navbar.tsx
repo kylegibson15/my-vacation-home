@@ -12,7 +12,7 @@ export const Navbar: React.FC = () => (
           <NavLink to="/my-vacation-home">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/my-vacation-home/about">About</NavLink>
+          <NavLink to="/my-vacation-home/check-out">Check Out</NavLink>
         </li>
       </ul>
     </div>

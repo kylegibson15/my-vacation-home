@@ -1,8 +1,5 @@
 import React from 'react'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
+import { Grid, Typography } from '@material-ui/core'
 
 import useStyles from './TopicCard.styles'
 
@@ -10,20 +7,18 @@ export default function OutlinedCard() {
   const classes = useStyles()
 
   return (
-    <Card className={classes.root} elevation={6}>
-      <CardContent>
-        <Typography className={classes.pos} variant="h5" component="h1">
-          WiFi
-        </Typography>
-        <Grid container direction="row" justify="space-between">
-          <Typography color="textSecondary">Network:</Typography>
-          <Typography color="textPrimary">CrestViewPlaceCondominium</Typography>
-        </Grid>
-        <Grid container direction="row" justify="space-between">
-          <Typography color="textSecondary">Password:</Typography>
-          <Typography color="textPrimary">winterpark</Typography>
-        </Grid>
-      </CardContent>
-    </Card>
+    <Grid container className={classes.root}>
+      <Typography className={classes.pos} variant="h3" component="h1">
+        WiFi
+      </Typography>
+      <Grid container item direction="row" justify="space-between">
+        <Typography color="error">Network:</Typography>
+        <Typography color="textPrimary">CrestViewPlaceCondominium</Typography>
+      </Grid>
+      <Grid container item direction="row" justify="space-between">
+        <Typography color="textSecondary">Password:</Typography>
+        <Typography color="textPrimary">winterpark</Typography>
+      </Grid>
+    </Grid>
   )
 }
