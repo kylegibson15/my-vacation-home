@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 
 import {
   // PictureCard,
-  // RestaurantsCard,
+  RestaurantsCard,
   TheLiftWinterParkCard,
   TopicCard,
   WiFiCard,
@@ -127,7 +127,7 @@ export const Home: FC = () => {
         <img alt="yellowstone-buffalo" src={yellowstone} style={{ width: '50%' }} />
       </Grid> */}
       <TheLiftWinterParkCard />
-      {/* <RestaurantsCard /> */}
+      <RestaurantsCard />
       <TopicCard />
       <TopicCard />
       <TopicCard />
