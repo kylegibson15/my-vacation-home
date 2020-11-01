@@ -3,10 +3,11 @@ import { red } from '@material-ui/core/colors'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 545,
+    maxWidth: 600,
     margin: theme.spacing(4, 0),
     width: '100%',
     backgroundColor: 'transparent',
+    color: 'white',
   },
   title: {
     fontSize: 14,
@@ -24,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
   },
   expand: {
     transform: 'rotate(0deg)',
-    marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),

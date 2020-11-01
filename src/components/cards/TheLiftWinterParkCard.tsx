@@ -1,15 +1,16 @@
 import React from 'react'
 import {
+  Avatar,
   Card,
   CardHeader,
   CardMedia,
   CardContent,
   CardActions,
-  Typography,
   Fab,
   Grid,
+  Typography,
 } from '@material-ui/core'
-import { Apple, AndroidOutlined } from '@material-ui/icons'
+import { Apple, AndroidOutlined, DirectionsBus } from '@material-ui/icons'
 
 import theLift from '../../images/TheLiftWinterPark.jpg'
 
@@ -25,6 +26,11 @@ export default function TheLiftWinterParkCard() {
       style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)', color: 'white' }}
     >
       <CardHeader
+        avatar={
+          <Avatar className={classes.avatar} variant="rounded">
+            <DirectionsBus />
+          </Avatar>
+        } // TODO: put bus icon here
         title={<Typography variant="h5">Free Local Transit</Typography>}
         subheader={new Date().toLocaleDateString()}
       />
@@ -35,8 +41,9 @@ export default function TheLiftWinterParkCard() {
       />
       <CardContent>
         <Typography variant="body2" component="p">
-          Free transit service year-round to and from Winter Park Resort,
-          Downtown Winter Park, Fraser and Granby
+          Enjoy the <b>FREE</b> transit service year-round to and from Winter
+          Park Resort, Downtown Winter Park, Fraser and Granby. The bus stop is
+          just outside the bedroom door down the hill.
         </Typography>
       </CardContent>
       <CardActions
@@ -44,8 +51,8 @@ export default function TheLiftWinterParkCard() {
         style={{ display: 'flex', justifyContent: 'flex-end' }}
       >
         <Grid>
-        <Typography variant="subtitle2">Download</Typography>
-        <Typography variant="subtitle2">the App</Typography>
+          <Typography variant="subtitle2">Download</Typography>
+          <Typography variant="subtitle2">the App</Typography>
         </Grid>
         <Fab
           href="https://apps.apple.com/us/app/the-lift-rider/id1420161965?ls=1"

@@ -78,7 +78,9 @@ export default function CheckOut() {
 
   return (
     <Container className={classes.root}>
-      <Typography variant="h3" color="textPrimary">Checking Out</Typography>
+      <Typography variant="h3" color="textPrimary">
+        Checking Out
+      </Typography>
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((label, index) => (
           <Step key={label}>

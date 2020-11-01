@@ -9,15 +9,21 @@ export default function OutlinedCard() {
   return (
     <Grid container className={classes.root}>
       <Typography className={classes.pos} variant="h3" component="h1">
-        WiFi
+        WIFI
       </Typography>
       <Grid container item direction="row" justify="space-between">
-        <Typography color="error">Network:</Typography>
-        <Typography color="textPrimary">CrestViewPlaceCondominium</Typography>
+        <Typography style={{ color: 'white' }}>
+          <b>Network:</b>
+        </Typography>
+        <Typography style={{ color: 'white' }}>
+          CrestViewPlaceCondominium
+        </Typography>
       </Grid>
       <Grid container item direction="row" justify="space-between">
-        <Typography color="textSecondary">Password:</Typography>
-        <Typography color="textPrimary">winterpark</Typography>
+        <Typography style={{ color: 'white' }}>
+          <b>Password:</b>
+        </Typography>
+        <Typography style={{ color: 'white' }}>winterpark</Typography>
       </Grid>
     </Grid>
   )
