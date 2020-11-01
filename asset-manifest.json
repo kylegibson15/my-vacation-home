@@ -1,22 +1,29 @@
 {
   "files": {
     "main.css": "/my-vacation-home/static/css/main.fc6648a7.chunk.css",
-    "main.js": "/my-vacation-home/static/js/main.219f4064.chunk.js",
-    "main.js.map": "/my-vacation-home/static/js/main.219f4064.chunk.js.map",
+    "main.js": "/my-vacation-home/static/js/main.60a9c3f3.chunk.js",
+    "main.js.map": "/my-vacation-home/static/js/main.60a9c3f3.chunk.js.map",
     "runtime-main.js": "/my-vacation-home/static/js/runtime-main.f8a1afde.js",
     "runtime-main.js.map": "/my-vacation-home/static/js/runtime-main.f8a1afde.js.map",
-    "static/js/2.334f5266.chunk.js": "/my-vacation-home/static/js/2.334f5266.chunk.js",
-    "static/js/2.334f5266.chunk.js.map": "/my-vacation-home/static/js/2.334f5266.chunk.js.map",
+    "static/js/2.6bb03aae.chunk.js": "/my-vacation-home/static/js/2.6bb03aae.chunk.js",
+    "static/js/2.6bb03aae.chunk.js.map": "/my-vacation-home/static/js/2.6bb03aae.chunk.js.map",
     "index.html": "/my-vacation-home/index.html",
     "static/css/main.fc6648a7.chunk.css.map": "/my-vacation-home/static/css/main.fc6648a7.chunk.css.map",
-    "static/js/2.334f5266.chunk.js.LICENSE.txt": "/my-vacation-home/static/js/2.334f5266.chunk.js.LICENSE.txt",
+    "static/js/2.6bb03aae.chunk.js.LICENSE.txt": "/my-vacation-home/static/js/2.6bb03aae.chunk.js.LICENSE.txt",
     "static/media/TheLiftWinterPark.cb6e8c3a.jpg": "/my-vacation-home/static/media/TheLiftWinterPark.cb6e8c3a.jpg",
+    "static/media/big-trout-brewing.a606add4.jpeg": "/my-vacation-home/static/media/big-trout-brewing.a606add4.jpeg",
+    "static/media/casa-mexico.c4d7b6e3.jpg": "/my-vacation-home/static/media/casa-mexico.c4d7b6e3.jpg",
+    "static/media/ciao-monte.91d21f2b.png": "/my-vacation-home/static/media/ciao-monte.91d21f2b.png",
+    "static/media/durbar.7e545fc8.jpeg": "/my-vacation-home/static/media/durbar.7e545fc8.jpeg",
+    "static/media/moose.8b91ecd7.png": "/my-vacation-home/static/media/moose.8b91ecd7.png",
+    "static/media/paellas.a9e50f39.png": "/my-vacation-home/static/media/paellas.a9e50f39.png",
+    "static/media/sushi-nama.d95631bc.jpg": "/my-vacation-home/static/media/sushi-nama.d95631bc.jpg",
     "static/media/yellowstone-buffalo.6858883e.png": "/my-vacation-home/static/media/yellowstone-buffalo.6858883e.png"
   },
   "entrypoints": [
     "static/js/runtime-main.f8a1afde.js",
-    "static/js/2.334f5266.chunk.js",
+    "static/js/2.6bb03aae.chunk.js",
     "static/css/main.fc6648a7.chunk.css",
-    "static/js/main.219f4064.chunk.js"
+    "static/js/main.60a9c3f3.chunk.js"
   ]
 }
