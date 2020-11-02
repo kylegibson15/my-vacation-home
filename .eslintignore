@@ -5,3 +5,6 @@ dist
 public
 # don't lint nyc coverage output
 coverage
+
+build
+.eslintrc.js
