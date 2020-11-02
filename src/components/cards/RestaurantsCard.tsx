@@ -5,7 +5,6 @@ import {
   CardActions,
   CardContent,
   CardHeader,
-  // CardMedia,
   Collapse,
   Grid,
   IconButton,

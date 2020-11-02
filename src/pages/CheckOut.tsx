@@ -1,14 +1,18 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
-import { makeStyles } from '@material-ui/core/styles'
-import { Container, Chip } from '@material-ui/core'
-import Stepper from '@material-ui/core/Stepper'
-import Step from '@material-ui/core/Step'
-import StepLabel from '@material-ui/core/StepLabel'
-import StepContent from '@material-ui/core/StepContent'
-import Button from '@material-ui/core/Button'
-import Paper from '@material-ui/core/Paper'
-import Typography from '@material-ui/core/Typography'
+import {
+  Button,
+  Container,
+  Chip,
+  makeStyles,
+  Paper,
+  Step,
+  StepContent,
+  StepLabel,
+  Stepper,
+  Typography,
+} from '@material-ui/core'
 import { ArrowBack } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
@@ -76,68 +80,94 @@ export default function CheckOut() {
     setActiveStep(0)
   }
 
+  const pageVariants = {
+    initial: {
+      opacity: 0,
+    },
+    in: {
+      opacity: 1,
+    },
+    out: {
+      opacity: 0,
+    },
+  }
+
+  const pageTransition = {
+    type: 'tween',
+    ease: 'anticipate',
+    duration: 1,
+  }
+
   return (
-    <Container className={classes.root}>
-      <Typography variant="h3" color="textPrimary">
-        Checking Out
-      </Typography>
-      <Stepper activeStep={activeStep} orientation="vertical">
-        {steps.map((label, index) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-            <StepContent>
-              <Typography>{getStepContent(index)}</Typography>
-              <div className={classes.actionsContainer}>
-                <div>
-                  <Button
-                    disabled={activeStep === 0}
-                    onClick={handleBack}
-                    className={classes.button}
-                  >
-                    Back
-                  </Button>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                  </Button>
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      transition={pageTransition}
+      variants={pageVariants}
+    >
+      <Container className={classes.root}>
+        <Typography variant="h3" color="textPrimary">
+          Checking Out
+        </Typography>
+        <Stepper activeStep={activeStep} orientation="vertical">
+          {steps.map((label, index) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+              <StepContent>
+                <Typography>{getStepContent(index)}</Typography>
+                <div className={classes.actionsContainer}>
+                  <div>
+                    <Button
+                      disabled={activeStep === 0}
+                      onClick={handleBack}
+                      className={classes.button}
+                    >
+                      Back
+                    </Button>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleNext}
+                      className={classes.button}
+                    >
+                      {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </StepContent>
-          </Step>
-        ))}
-      </Stepper>
-      {activeStep === steps.length && (
-        <Paper square elevation={0} className={classes.resetContainer}>
-          <Typography>
-            All steps completed - you&apos;re ready check out
-          </Typography>
-          <Button onClick={handleReset} className={classes.button}>
-            Reset
-          </Button>
-        </Paper>
-      )}
-      <NavLink to="/my-vacation-home">
-        <Chip
-          icon={<ArrowBack style={{ color: 'white' }} />}
-          label="Return"
-          size="small"
-          style={{
-            boxShadow:
-              '0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12)',
-            color: 'white',
-            backgroundColor: '#CA761B',
-            padding: '0px 8px',
-            position: 'fixed',
-            bottom: 15,
-            right: 15,
-            zIndex: 10,
-          }}
-        />
-      </NavLink>
-    </Container>
+              </StepContent>
+            </Step>
+          ))}
+        </Stepper>
+        {activeStep === steps.length && (
+          <Paper square elevation={0} className={classes.resetContainer}>
+            <Typography>
+              All steps completed - you&apos;re ready check out
+            </Typography>
+            <Button onClick={handleReset} className={classes.button}>
+              Reset
+            </Button>
+          </Paper>
+        )}
+        <NavLink to="/my-vacation-home">
+          <Chip
+            icon={<ArrowBack style={{ color: 'white' }} />}
+            label="Return"
+            size="small"
+            style={{
+              boxShadow:
+                '0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12)',
+              color: 'white',
+              backgroundColor: '#CA761B',
+              padding: '0px 8px',
+              position: 'fixed',
+              bottom: 15,
+              right: 15,
+              zIndex: 10,
+            }}
+          />
+        </NavLink>
+      </Container>
+    </motion.div>
   )
 }
