@@ -1,6 +1,6 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { NavLink } from 'react-router-dom';
 import {
   Button,
   Container,
@@ -11,36 +11,36 @@ import {
   StepContent,
   StepLabel,
   Stepper,
-  Typography,
-} from '@material-ui/core'
-import { ArrowBack } from '@material-ui/icons'
+  Typography
+} from '@material-ui/core';
+import { ArrowBack } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100vw',
     height: '100vh',
     backgroundColor: theme.palette.background.paper,
-    paddingTop: theme.spacing(2),
+    paddingTop: theme.spacing(2)
   },
   button: {
     marginTop: theme.spacing(1),
-    marginRight: theme.spacing(1),
+    marginRight: theme.spacing(1)
   },
   actionsContainer: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(2)
   },
   resetContainer: {
-    padding: theme.spacing(3),
-  },
-}))
+    padding: theme.spacing(3)
+  }
+}));
 
 function getSteps() {
   return [
     'Select campaign settings',
     'Create an ad group',
     'Create an ad',
-    'Take out the trash',
-  ]
+    'Take out the trash'
+  ];
 }
 
 function getStepContent(step: number) {
@@ -48,55 +48,55 @@ function getStepContent(step: number) {
     case 0:
       return `For each ad campaign that you create, you can control how much
               you're willing to spend on clicks and conversions, which networks
-              and geographical locations you want your ads to show on, and more.`
+              and geographical locations you want your ads to show on, and more.`;
     case 1:
-      return 'An ad group contains one or more ads which target a shared set of keywords.'
+      return 'An ad group contains one or more ads which target a shared set of keywords.';
     case 2:
       return `Try out different ad text to see what brings in the most customers,
               and learn how to enhance your ads using features like ad extensions.
               If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`
+              they're running and how to resolve approval issues.`;
     case 3:
-      return 'Be sure to bag any trash and have the bag ready for the cleaners.'
+      return 'Be sure to bag any trash and have the bag ready for the cleaners.';
     default:
-      return 'Unknown step'
+      return 'Unknown step';
   }
 }
 
 export default function CheckOut() {
-  const classes = useStyles()
-  const [activeStep, setActiveStep] = React.useState(0)
-  const steps = getSteps()
+  const classes = useStyles();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const steps = getSteps();
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1)
-  }
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1)
-  }
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
 
   const handleReset = () => {
-    setActiveStep(0)
-  }
+    setActiveStep(0);
+  };
 
   const pageVariants = {
     initial: {
-      opacity: 0,
+      opacity: 0
     },
     in: {
-      opacity: 1,
+      opacity: 1
     },
     out: {
-      opacity: 0,
-    },
-  }
+      opacity: 0
+    }
+  };
 
   const pageTransition = {
     type: 'tween',
     ease: 'anticipate',
-    duration: 1,
-  }
+    duration: 1
+  };
 
   return (
     <motion.div
@@ -163,11 +163,11 @@ export default function CheckOut() {
               position: 'fixed',
               bottom: 15,
               right: 15,
-              zIndex: 10,
+              zIndex: 10
             }}
           />
         </NavLink>
       </Container>
     </motion.div>
-  )
+  );
 }

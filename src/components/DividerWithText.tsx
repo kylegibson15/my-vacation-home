@@ -1,14 +1,14 @@
-import React from 'react'
-import { Grid } from '@material-ui/core'
+import React from 'react';
+import { Grid } from '@material-ui/core';
 
-import useStyles from './DividerWithText.styles'
+import { useDividerWithTextStyles } from './styles';
 
 interface IDividerWithTextProps {
-  value: string
+  value: string;
 }
 
 function DividerWithText({ value }: IDividerWithTextProps) {
-  const classes = useStyles()
+  const classes = useDividerWithTextStyles();
   return (
     <Grid item>
       <div className={classes.dividerContainer}>
@@ -17,7 +17,7 @@ function DividerWithText({ value }: IDividerWithTextProps) {
         <div className={classes.dividerBorder} />
       </div>
     </Grid>
-  )
+  );
 }
 
-export default DividerWithText
+export default DividerWithText;

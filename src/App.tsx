@@ -1,14 +1,14 @@
-import React, { FC } from 'react'
-import { AnimatePresence } from 'framer-motion'
-import { Switch, Route, useLocation } from 'react-router-dom'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import { Container } from '@material-ui/core'
+import React, { FC } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { Switch, Route, useLocation } from 'react-router-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { Container } from '@material-ui/core';
 
-import CheckOut from './pages/CheckOut'
-import { Home } from './pages/Home'
+import CheckOut from './pages/CheckOut';
+import { Home } from './pages/Home';
 
 const App: FC = () => {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <CssBaseline>
@@ -19,7 +19,7 @@ const App: FC = () => {
           flexDirection: 'column',
           backgroundImage:
             'linear-gradient(to bottom, #374364, #364a68, #37506b, #39566e, #3c5c70, #2e6576, #1e6e78, #167675, #27805f, #59863b, #8f8417, #ca761b)',
-          overflowX: 'hidden',
+          overflowX: 'hidden'
         }}
         maxWidth="md"
       >
@@ -31,7 +31,7 @@ const App: FC = () => {
         </AnimatePresence>
       </Container>
     </CssBaseline>
-  )
-}
+  );
+};
 
-export default App
+export default App;

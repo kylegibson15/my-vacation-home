@@ -1,15 +1,15 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useDividerWithTextStyles = makeStyles((theme) => ({
   dividerContainer: {
     display: 'flex',
     alignItems: 'center',
     marginTop: 15,
-    width: '90vw',
+    width: '90vw'
   },
   dividerBorder: {
     borderBottom: '2px solid lightgray',
-    width: '100%',
+    width: '100%'
   },
   dividerText: {
     paddingTop: theme.spacing(0.5),
@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(2),
     fontWeight: 500,
     fontSize: 22,
-    color: 'lightgray',
-  },
-}))
+    color: 'lightgray'
+  }
+}));
 
-export default useStyles
+export default useDividerWithTextStyles;

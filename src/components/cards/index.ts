@@ -1,5 +1,5 @@
-export { default as TopicCard } from './TopicCard'
-export { default as TheLiftWinterParkCard } from './TheLiftWinterParkCard'
-export { default as WiFiCard } from './WiFiCard'
-export { default as PictureCard } from './PictureCard'
-export { default as RestaurantsCard } from './RestaurantsCard'
+export { default as TopicCard } from './TopicCard';
+export { default as TransitCard } from './TransitCard';
+export { default as WiFiCard } from './WiFiCard';
+export { default as RestaurantsCard } from './RestaurantsCard';
+export { default as WeatherCard } from './WeatherCard';

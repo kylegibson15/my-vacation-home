@@ -1,11 +1,11 @@
-import bigTrout from './big-trout-brewing.jpeg'
-import casaMexico from './casa-mexico.jpg'
-import ciaoMonte from './ciao-monte.png'
-import durbar from './durbar.jpeg'
-import lionHeadCoffee from './lion-head-coffee.jpeg'
-import newHongKong from './new-hong-kong.jpg'
-import paellas from './paellas.png'
-import sushiNama from './sushi-nama.jpg'
+import bigTrout from './big-trout-brewing.jpeg';
+import casaMexico from './casa-mexico.jpg';
+import ciaoMonte from './ciao-monte.png';
+import durbar from './durbar.jpeg';
+import lionHeadCoffee from './lion-head-coffee.jpeg';
+import newHongKong from './new-hong-kong.jpg';
+import paellas from './paellas.png';
+import sushiNama from './sushi-nama.jpg';
 
 const restaurants = [
   bigTrout,
@@ -15,7 +15,17 @@ const restaurants = [
   lionHeadCoffee,
   newHongKong,
   paellas,
-  sushiNama,
-]
+  sushiNama
+];
 
-export default restaurants
+export default restaurants;
+export {
+  bigTrout,
+  casaMexico,
+  ciaoMonte,
+  durbar,
+  lionHeadCoffee,
+  newHongKong,
+  paellas,
+  sushiNama
+};

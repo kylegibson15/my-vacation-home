@@ -1,13 +1,13 @@
-import React from 'react'
-import { Grid, Typography } from '@material-ui/core'
+import React from 'react';
+import { Grid, Typography } from '@material-ui/core';
 
-import moose from '../images/moose.png'
+import moose from '../images/moose.png';
 
-import useStyles from './IntroMessage.styles'
-import DividerWithText from './DividerWithText'
+import { useIntroMessageStyles } from './styles';
+import DividerWithText from './DividerWithText';
 
 function IntroMessage() {
-  const classes = useStyles()
+  const classes = useIntroMessageStyles();
   return (
     <Grid
       alignItems="center"
@@ -41,7 +41,7 @@ function IntroMessage() {
 
       <DividerWithText value="Enjoy!" />
     </Grid>
-  )
+  );
 }
 
-export default IntroMessage
+export default IntroMessage;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   Avatar,
   Card,
@@ -8,29 +8,25 @@ import {
   CardActions,
   Fab,
   Grid,
-  Typography,
-} from '@material-ui/core'
-import { Apple, AndroidOutlined, DirectionsBus } from '@material-ui/icons'
+  Typography
+} from '@material-ui/core';
+import { Apple, AndroidOutlined, DirectionsBus } from '@material-ui/icons';
 
-import theLift from '../../images/TheLiftWinterPark.jpg'
+import theLift from '../../images/TheLiftWinterPark.jpg';
 
-import useStyles from './TopicCard.styles'
+import { useTransitCardStyles } from './styles';
 
-export default function TheLiftWinterParkCard() {
-  const classes = useStyles()
+export default function TransitCard() {
+  const classes = useTransitCardStyles();
 
   return (
-    <Card
-      className={classes.root}
-      elevation={6}
-      style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)', color: 'white' }}
-    >
+    <Card className={classes.container} elevation={6}>
       <CardHeader
         avatar={
           <Avatar className={classes.avatar} variant="rounded">
             <DirectionsBus />
           </Avatar>
-        } // TODO: put bus icon here
+        }
         title={<Typography variant="h5">Free Local Transit</Typography>}
         subheader={new Date().toLocaleDateString()}
       />
@@ -46,31 +42,24 @@ export default function TheLiftWinterParkCard() {
           just outside the bedroom door down the hill.
         </Typography>
       </CardContent>
-      <CardActions
-        disableSpacing
-        style={{ display: 'flex', justifyContent: 'flex-end' }}
-      >
+      <CardActions className={classes.cardActions} disableSpacing>
         <Grid>
           <Typography variant="subtitle2">Download</Typography>
           <Typography variant="subtitle2">the App</Typography>
         </Grid>
         <Fab
+          className={classes.fabApple}
           href="https://apps.apple.com/us/app/the-lift-rider/id1420161965?ls=1"
-          style={{ backgroundColor: '#374364', margin: '5px' }}
         >
           <Apple style={{ color: 'white' }} />
         </Fab>
         <Fab
+          className={classes.fabAndroid}
           href="https://play.google.com/store/apps/details?hl=en_US&id=com.ridesystems.TheLift"
-          style={{
-            backgroundImage:
-              'radial-gradient(circle, rgba(46,42,42,1) 0%, rgba(72,84,43,1) 5%, rgba(82,101,44,1) 9%, rgba(89,113,44,1) 13%, rgba(149,208,47,1) 100%)',
-            margin: '5px',
-          }}
         >
           <AndroidOutlined style={{ color: 'white' }} />
         </Fab>
       </CardActions>
     </Card>
-  )
+  );
 }

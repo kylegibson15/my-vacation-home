@@ -21,6 +21,8 @@ module.exports = {
     "prettier/prettier": ["warn"],
     "react/jsx-fragments": 1,
     // Disable prefer default export
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "react/require-default-props": "off",
+    semi: [1, "always"]
   }
 }
