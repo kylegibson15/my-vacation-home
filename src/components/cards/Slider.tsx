@@ -1,48 +1,48 @@
 import * as React from 'react';
-import { useState } from 'react';
-import { wrap } from 'popmotion';
-import { motion, AnimatePresence } from 'framer-motion';
+// import { useState } from 'react';
+// import { wrap } from 'popmotion';
+// import { motion, AnimatePresence } from 'framer-motion';
 
-import images from '../../images/restaurants';
+// import images from '../../images/restaurants';
 
-const variants = {
-  enter: (direction: number) => {
-    return {
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0
-    };
-  },
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1
-  },
-  exit: (direction: number) => {
-    return {
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0
-    };
-  }
-};
+// const variants = {
+//   enter: (direction: number) => {
+//     return {
+//       x: direction > 0 ? 1000 : -1000,
+//       opacity: 0
+//     };
+//   },
+//   center: {
+//     zIndex: 1,
+//     x: 0,
+//     opacity: 1
+//   },
+//   exit: (direction: number) => {
+//     return {
+//       zIndex: 0,
+//       x: direction < 0 ? 1000 : -1000,
+//       opacity: 0
+//     };
+//   }
+// };
 
-const swipeConfidenceThreshold = 10000;
-const swipePower = (offset: number, velocity: number) => {
-  return Math.abs(offset) * velocity;
-};
+// const swipeConfidenceThreshold = 10000;
+// const swipePower = (offset: number, velocity: number) => {
+//   return Math.abs(offset) * velocity;
+// };
 
 export const Slider = () => {
-  const [[page, direction], setPage] = useState([0, 0]);
-  const imageIndex = wrap(0, images.length, page);
+  // const [[page, direction], setPage] = useState([0, 0]);
+  // const imageIndex = wrap(0, images.length, page);
 
-  const paginate = (newDirection: number) => {
-    setPage([page + newDirection, newDirection]);
-  };
+  // const paginate = (newDirection: number) => {
+  //   setPage([page + newDirection, newDirection]);
+  // };
 
   return (
-    <>
-      <AnimatePresence initial={false} custom={direction}>
-        <motion.img
+    <div>
+      {/* <AnimatePresence initial={false} custom={direction}> */}
+      {/* <motion.img
           key={page}
           src={images[imageIndex]}
           custom={direction}
@@ -67,8 +67,8 @@ export const Slider = () => {
             }
           }}
           style={{ height: '180px' }}
-        />
-      </AnimatePresence>
-    </>
+        /> */}
+      {/* </AnimatePresence> */}
+    </div>
   );
 };

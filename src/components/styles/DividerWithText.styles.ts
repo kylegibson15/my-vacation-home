@@ -12,13 +12,16 @@ const useDividerWithTextStyles = makeStyles((theme) => ({
     width: '100%'
   },
   dividerText: {
+    display: 'flex',
+    justifyContent: 'center',
     paddingTop: theme.spacing(0.5),
     paddingBottom: theme.spacing(0.5),
     paddingRight: theme.spacing(2),
     paddingLeft: theme.spacing(2),
     fontWeight: 500,
     fontSize: 22,
-    color: 'lightgray'
+    color: 'lightgray',
+    inlineSize: 'inherit'
   }
 }));
 

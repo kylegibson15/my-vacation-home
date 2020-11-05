@@ -1,13 +1,11 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Switch, Route, useLocation } from 'react-router-dom';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { Container } from '@material-ui/core';
+import { Container, CssBaseline } from '@material-ui/core';
 
-import CheckOut from './pages/CheckOut';
-import { Home } from './pages/Home';
+import { CheckOut, Home } from './components/pages';
 
-const App: FC = () => {
+function App() {
   const location = useLocation();
 
   return (
@@ -32,6 +30,6 @@ const App: FC = () => {
       </Container>
     </CssBaseline>
   );
-};
+}
 
 export default App;

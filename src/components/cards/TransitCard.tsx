@@ -14,7 +14,7 @@ import { Apple, AndroidOutlined, DirectionsBus } from '@material-ui/icons';
 
 import theLift from '../../images/TheLiftWinterPark.jpg';
 
-import { useTransitCardStyles } from './styles';
+import { useTransitCardStyles } from '../styles';
 
 export default function TransitCard() {
   const classes = useTransitCardStyles();

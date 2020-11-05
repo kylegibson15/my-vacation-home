@@ -20,6 +20,7 @@ module.exports = {
     // Make prettier code formatting suggestions more verbose.
     "prettier/prettier": ["warn"],
     "react/jsx-fragments": 1,
+    "react/jsx-props-no-spreading": [0],
     // Disable prefer default export
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",

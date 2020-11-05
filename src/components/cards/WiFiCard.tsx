@@ -1,10 +1,10 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 
-import useStyles from './TopicCard.styles';
+import { useTopicCardStyles } from '../styles';
 
 export default function OutlinedCard() {
-  const classes = useStyles();
+  const classes = useTopicCardStyles();
 
   return (
     <Grid container className={classes.root}>
