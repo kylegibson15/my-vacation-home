@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '56.25%' // 16:9
   },
   background: {
-    backgroundSize: 'contain'
+    backgroundSize: 'contain !important'
   },
   expand: {
     transform: 'rotate(0deg)',
