@@ -3,8 +3,6 @@ import { red } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: theme.spacing(4, 0),
-    width: '100%',
     backgroundColor: 'transparent',
     color: 'white'
   },
