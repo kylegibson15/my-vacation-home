@@ -42,12 +42,12 @@ function MessageWithPictureProps({
       <Grid item>
         {messages.map((message) => {
           return (
-            <>
+            <div key={`${message.split('').splice(5)}`}>
               <Typography align="center" variant="body1">
                 {message}
               </Typography>
               <br />
-            </>
+            </div>
           );
         })}
       </Grid>

@@ -16,8 +16,7 @@ function App() {
           alignItems: 'center',
           flexDirection: 'column',
           backgroundImage:
-            'linear-gradient(to bottom, #374364, #364a68, #37506b, #39566e, #3c5c70, #2e6576, #1e6e78, #167675, #27805f, #59863b, #8f8417, #ca761b)',
-          overflowX: 'hidden'
+            'linear-gradient(to bottom, #374364, #364a68, #37506b, #39566e, #3c5c70, #2e6576, #1e6e78, #167675, #27805f, #59863b, #8f8417, #ca761b)'
         }}
         maxWidth="md"
       >
