@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/my-vacation-home/static/css/main.fc6648a7.chunk.css",
-    "main.js": "/my-vacation-home/static/js/main.20e03cc1.chunk.js",
-    "main.js.map": "/my-vacation-home/static/js/main.20e03cc1.chunk.js.map",
+    "main.js": "/my-vacation-home/static/js/main.a5a51630.chunk.js",
+    "main.js.map": "/my-vacation-home/static/js/main.a5a51630.chunk.js.map",
     "runtime-main.js": "/my-vacation-home/static/js/runtime-main.f8a1afde.js",
     "runtime-main.js.map": "/my-vacation-home/static/js/runtime-main.f8a1afde.js.map",
-    "static/js/2.370304af.chunk.js": "/my-vacation-home/static/js/2.370304af.chunk.js",
-    "static/js/2.370304af.chunk.js.map": "/my-vacation-home/static/js/2.370304af.chunk.js.map",
+    "static/js/2.5cc68902.chunk.js": "/my-vacation-home/static/js/2.5cc68902.chunk.js",
+    "static/js/2.5cc68902.chunk.js.map": "/my-vacation-home/static/js/2.5cc68902.chunk.js.map",
     "index.html": "/my-vacation-home/index.html",
     "static/css/main.fc6648a7.chunk.css.map": "/my-vacation-home/static/css/main.fc6648a7.chunk.css.map",
-    "static/js/2.370304af.chunk.js.LICENSE.txt": "/my-vacation-home/static/js/2.370304af.chunk.js.LICENSE.txt",
+    "static/js/2.5cc68902.chunk.js.LICENSE.txt": "/my-vacation-home/static/js/2.5cc68902.chunk.js.LICENSE.txt",
     "static/media/TheLiftWinterPark.cb6e8c3a.jpg": "/my-vacation-home/static/media/TheLiftWinterPark.cb6e8c3a.jpg",
     "static/media/bear.132a0a56.png": "/my-vacation-home/static/media/bear.132a0a56.png",
     "static/media/big-trout-brewing.a606add4.jpeg": "/my-vacation-home/static/media/big-trout-brewing.a606add4.jpeg",
@@ -24,8 +24,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.f8a1afde.js",
-    "static/js/2.370304af.chunk.js",
+    "static/js/2.5cc68902.chunk.js",
     "static/css/main.fc6648a7.chunk.css",
-    "static/js/main.20e03cc1.chunk.js"
+    "static/js/main.a5a51630.chunk.js"
   ]
 }
