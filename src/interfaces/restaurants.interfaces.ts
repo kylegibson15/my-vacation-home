@@ -4,4 +4,5 @@ export interface IImageWithDialogProps {
   directions: string;
   slide: SlideProps['direction'];
   src: string;
+  title?: string;
 }

@@ -13,13 +13,14 @@ export default function ImageGridList() {
     <Grid container>
       <DividerWithText value="Restaurants" />
       <Grid className={classes.imagesContainer} container item>
-        {restaurants.map(({ directions, slide, src }) => {
+        {restaurants.map(({ directions, slide, src, title }) => {
           return (
             <ImageWithDialog
               directions={directions}
               key={`${src}-${slide}`}
               slide={slide}
               src={src}
+              title={title}
             />
           );
         })}

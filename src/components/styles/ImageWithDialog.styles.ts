@@ -31,7 +31,8 @@ const useImageWithDialogStyles = makeStyles((theme: Theme) =>
       flex: 1,
       flexDirection: 'row',
       flexWrap: 'wrap',
-      width: '100%'
+      width: '100%',
+      padding: '0px !important'
     },
     paper: {
       zIndex: 10,

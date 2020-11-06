@@ -11,11 +11,41 @@ import {
   IconButton,
   Typography
 } from '@material-ui/core';
-import { Favorite, Share, ExpandMore, MoreVert } from '@material-ui/icons';
+import {
+  Directions,
+  Favorite,
+  Share,
+  ExpandMore,
+  MoreVert
+} from '@material-ui/icons';
 
 import { useTopicCardStyles } from '../styles';
 
-export default function TopicCard() {
+// function mapsSelector() {
+//   // Big Trout Brewing Company, 50 Vasquez Rd, Winter Park, CO 80482
+//   if (
+//     /* if we're on iOS, open in Apple Maps */
+//     navigator.platform.indexOf('iPhone') !== -1 ||
+//     navigator.platform.indexOf('iPad') !== -1 ||
+//     navigator.platform.indexOf('iPod') !== -1
+//   )
+//     window.open(`maps://${directions}`);
+//   /* else use Google */ else window.open(`https://${directions}`);
+// }
+
+interface ITopicCardProps {
+  border?: boolean;
+  expandable?: boolean;
+  img?: string;
+  title?: string;
+}
+
+export default function TopicCard({
+  border,
+  expandable,
+  img,
+  title
+}: ITopicCardProps) {
   const classes = useTopicCardStyles();
   const [expanded, setExpanded] = useState(false);
 
@@ -24,11 +54,11 @@ export default function TopicCard() {
   };
 
   return (
-    <Card className={classes.root} elevation={6}>
+    <Card className={classes.root} elevation={border ? 6 : 0}>
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            R
+            {title?.split('')[0] || 'R'}
           </Avatar>
         }
         action={
@@ -36,12 +66,12 @@ export default function TopicCard() {
             <MoreVert />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={title || 'Shrimp and Chorizo Paella'}
       />
       <CardMedia
+        classes={{ root: classes.background }}
         className={classes.media}
-        image="/static/images/cards/paella.jpg"
+        image={img ?? '/static/images/cards/paella.jpg'}
         title="Paella dish"
       />
       <CardContent>
@@ -58,16 +88,21 @@ export default function TopicCard() {
         <IconButton aria-label="share">
           <Share />
         </IconButton>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMore />
+        <IconButton aria-label="direction">
+          <Directions />
         </IconButton>
+        {expandable ? (
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMore />
+          </IconButton>
+        ) : null}
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>

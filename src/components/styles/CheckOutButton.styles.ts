@@ -8,7 +8,7 @@ const useCheckOutButtonStyles = makeStyles(() => ({
     backgroundColor: '#CA761B',
     padding: '0px 8px',
     position: 'fixed',
-    top: 15,
+    top: 25,
     right: 15,
     zIndex: 10
   }

@@ -44,9 +44,9 @@ function Home() {
         messages={midwayMessages}
         picture={buffalo}
       />
-      <TopicCard />
+      <TopicCard border />
       <MessageWithPicture
-        divider={{ position: TPosition.Bottom, text: 'Welcom to Winter Park' }}
+        divider={{ position: TPosition.Top, text: 'WP' }}
         messages={midwayMessages}
         picture={yellowstone}
       />

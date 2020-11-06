@@ -1,23 +1,16 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  Grid,
-  // IconButton,
-  Paper,
-  Slide,
-  // Typography
-} from '@material-ui/core';
-// import { Directions } from '@material-ui/icons';
+import { Button, Grid, Paper, Slide } from '@material-ui/core';
 
 import { IImageWithDialogProps } from '../interfaces';
 
 import { TopicCard } from './cards';
 import { useImageWithDialogStyles } from './styles';
 
-export default function SimpleSlide({
+function ImageWithDialog({
   // directions,
   slide,
-  src
+  src,
+  title
 }: IImageWithDialogProps) {
   const classes = useImageWithDialogStyles();
   const [checked, setChecked] = useState(false);
@@ -25,18 +18,6 @@ export default function SimpleSlide({
   const handleChange = () => {
     setChecked((prev) => !prev);
   };
-
-  // function mapsSelector() {
-  //   // Big Trout Brewing Company, 50 Vasquez Rd, Winter Park, CO 80482
-  //   if (
-  //     /* if we're on iOS, open in Apple Maps */
-  //     navigator.platform.indexOf('iPhone') !== -1 ||
-  //     navigator.platform.indexOf('iPad') !== -1 ||
-  //     navigator.platform.indexOf('iPod') !== -1
-  //   )
-  //     window.open(`maps://${directions}`);
-  //   /* else use Google */ else window.open(`https://${directions}`);
-  // }
 
   return (
     <>
@@ -51,13 +32,7 @@ export default function SimpleSlide({
         <Paper elevation={4} className={classes.paper}>
           <Grid className={classes.content} container spacing={4}>
             <Grid className={classes.mainContent} item>
-              {/* <Grid className={classes.itemButton}>
-                <IconButton color="primary" onClick={mapsSelector}>
-                  <Directions style={{ fontSize: 60 }} />
-                </IconButton>
-                <Typography color="primary">Directions</Typography>
-              </Grid> */}
-              <TopicCard />
+              <TopicCard img={src} title={title} />
             </Grid>
             <Grid item>
               <Button
@@ -76,3 +51,5 @@ export default function SimpleSlide({
     </>
   );
 }
+
+export default ImageWithDialog;

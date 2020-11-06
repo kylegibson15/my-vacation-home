@@ -4,7 +4,7 @@ import { red } from '@material-ui/core/colors';
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: 'transparent',
-    color: 'white'
+    padding: 0
   },
   title: {
     fontSize: 14
@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 0,
     paddingTop: '56.25%' // 16:9
+  },
+  background: {
+    backgroundSize: 'contain'
   },
   expand: {
     transform: 'rotate(0deg)',
