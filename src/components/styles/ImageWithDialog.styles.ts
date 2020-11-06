@@ -13,7 +13,8 @@ const useImageWithDialogStyles = makeStyles((theme: Theme) =>
         '0px 3px 5px -1px rgba(0,0,0,0.8), 0px 6px 10px 0px rgba(0,0,0,0.74), 0px 1px 18px 0px rgba(0,0,0,0.72)',
       borderRadius: theme.spacing(1),
       display: 'flex',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      margin: 12
     },
     image: {
       width: '50%',
