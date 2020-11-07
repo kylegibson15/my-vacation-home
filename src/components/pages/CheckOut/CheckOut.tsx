@@ -15,6 +15,8 @@ import {
 } from '@material-ui/core';
 import { ArrowBack } from '@material-ui/icons';
 
+import StepIcon from './StepIcon';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100vw',
@@ -36,34 +38,44 @@ const useStyles = makeStyles((theme) => ({
 
 function getSteps() {
   return [
-    'Select campaign settings',
-    'Create an ad group',
-    'Create an ad',
-    'Take out the trash'
+    'Windows & Doors',
+    'Trash',
+    'Dishes',
+    'Lights',
+    'Thermostat',
+    'Linens',
+    'Keys',
+    'Beds'
   ];
 }
 
 function getStepContent(step: number) {
   switch (step) {
     case 0:
-      return `For each ad campaign that you create, you can control how much
-              you're willing to spend on clicks and conversions, which networks
-              and geographical locations you want your ads to show on, and more.`;
+      return `Secure all doors and windows. When opening up windows, please make sure
+              that you move the blinds or window treatments out of the way.`;
     case 1:
-      return 'An ad group contains one or more ads which target a shared set of keywords.';
+      return `Bag all trash and place it in the trash collection area. 
+              The trash bins are located in the garage outside the door.`;
     case 2:
-      return `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`;
+      return `Load and run the dishwasher.`;
     case 3:
-      return 'Be sure to bag any trash and have the bag ready for the cleaners.';
+      return 'Turn off all Lights.';
+    case 4:
+      return `Please make sure the the heat is left on 55 degrees`;
+    case 5:
+      return `Any unused linens/ towels should remain in place. Place all used towels on the tile floor.`;
+    case 6:
+      return `Return the lockbox key back to its place in the lockbox. 
+              The 2 sets of keys that you found inside the condo need to be put back on the wooden counter area.`;
+    case 7:
+      return `Please strip the beds.`;
     default:
       return 'Unknown step';
   }
 }
 
-export default function CheckOut() {
+function CheckOut() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
@@ -113,15 +125,16 @@ export default function CheckOut() {
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((label, index) => (
             <Step key={label}>
-              <StepLabel>{label}</StepLabel>
+              <StepLabel StepIconComponent={StepIcon}>{label}</StepLabel>
               <StepContent>
-                <Typography>{getStepContent(index)}</Typography>
+                <Typography variant="body2">{getStepContent(index)}</Typography>
                 <div className={classes.actionsContainer}>
                   <div>
                     <Button
                       disabled={activeStep === 0}
                       onClick={handleBack}
                       className={classes.button}
+                      size="small"
                     >
                       Back
                     </Button>
@@ -130,6 +143,7 @@ export default function CheckOut() {
                       color="primary"
                       onClick={handleNext}
                       className={classes.button}
+                      size="small"
                     >
                       {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                     </Button>
@@ -141,10 +155,14 @@ export default function CheckOut() {
         </Stepper>
         {activeStep === steps.length && (
           <Paper square elevation={0} className={classes.resetContainer}>
-            <Typography>
-              All steps completed - you&apos;re ready check out
+            <Typography variant="body2">
+              All steps completed - you&apos;re ready to check out
             </Typography>
-            <Button onClick={handleReset} className={classes.button}>
+            <Button
+              onClick={handleReset}
+              className={classes.button}
+              size="small"
+            >
               Reset
             </Button>
           </Paper>
@@ -171,3 +189,5 @@ export default function CheckOut() {
     </motion.div>
   );
 }
+
+export default CheckOut;
