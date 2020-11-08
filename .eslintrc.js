@@ -24,6 +24,8 @@ module.exports = {
     // Disable prefer default export
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["warn"],
     semi: [1, "always"]
   }
 }

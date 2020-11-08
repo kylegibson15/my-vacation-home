@@ -20,13 +20,7 @@ function MessageWithPictureProps({
   const classes = useMessageWithPictureStyles();
   const { position, text } = divider;
   return (
-    <Grid
-      alignItems="center"
-      container
-      justify="center"
-      spacing={6}
-      style={{ color: 'white' }}
-    >
+    <Grid container item justify="center" style={{ color: 'white' }}>
       {position === TPosition.Both || position === TPosition.Top ? (
         <DividerWithText value={text} />
       ) : null}

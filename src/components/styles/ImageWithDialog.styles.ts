@@ -17,9 +17,8 @@ const useImageWithDialogStyles = makeStyles((theme: Theme) =>
       margin: 12
     },
     image: {
-      width: '50%',
-      maxHeight: 170,
-      minHeight: 100,
+      height: '10vh',
+      width: 'auto',
       border: '1px solid transparent'
     },
     itemButton: {

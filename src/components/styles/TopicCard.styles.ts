@@ -4,7 +4,8 @@ import { red } from '@material-ui/core/colors';
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: 'transparent',
-    padding: 0
+    padding: 0,
+    margin: 12
   },
   title: {
     fontSize: 14

@@ -7,7 +7,7 @@ export default function OutlinedCard() {
   const classes = useTopicCardStyles();
 
   return (
-    <Grid container className={classes.root}>
+    <Grid className={classes.root}>
       <Typography className={classes.pos} variant="h3" component="h1">
         WIFI
       </Typography>

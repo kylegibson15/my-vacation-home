@@ -9,7 +9,6 @@ import {
 } from '../../constants';
 import { TPosition } from '../../types';
 import { bear, buffalo, moose, yellowstone } from '../../images';
-import CheckOutButton from '../CheckOutButton';
 import MessageWithPicture from '../MessageWithPicture';
 import RestaurantGridList from '../RestaurantGridList';
 import { TransitCard, TopicCard, WiFiCard } from '../cards';
@@ -24,7 +23,6 @@ function Home() {
       variants={pageVariants}
       transition={pageTransition}
     >
-      <CheckOutButton />
       <WiFiCard />
       <MessageWithPicture
         divider={{ position: TPosition.Bottom, text: 'Enjoy!' }}
