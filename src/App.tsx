@@ -2,21 +2,10 @@ import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Switch, Route, useLocation } from 'react-router-dom';
 
-import { CheckOut, Home } from './components/pages';
+import { CheckOut, Home, Fireplace } from './components/pages';
 import { NavigationBar } from './components';
 
 const BASE_ROUTE = '/my-vacation-home';
-
-// const routes = [
-//   {
-//     component: Home,
-//     path: BASE_ROUTE
-//   },
-//   {
-//     component: CheckOut,
-//     path: `${BASE_ROUTE}/check-out`
-//   }
-// ]
 
 function App() {
   const location = useLocation();
@@ -25,8 +14,9 @@ function App() {
     <NavigationBar>
       <AnimatePresence>
         <Switch location={location} key={location.pathname}>
-          <Route path={BASE_ROUTE} component={Home} exact />
-          <Route path={`${BASE_ROUTE}/check-out`} component={CheckOut} />
+          <Route component={Home} exact path={BASE_ROUTE} />
+          <Route component={CheckOut} path={`${BASE_ROUTE}/check-out`} />
+          <Route component={Fireplace} path={`${BASE_ROUTE}/fireplace`} />
         </Switch>
       </AnimatePresence>
     </NavigationBar>

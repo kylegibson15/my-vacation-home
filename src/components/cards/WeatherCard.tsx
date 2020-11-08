@@ -26,9 +26,7 @@ function WeatherCard() {
       );
       data.current = await response.json();
     })();
-    console.log({ data: data.current });
   }, []);
-  console.log('RENDER ::', { data: data.current });
 
   const handleDegreeChange = (
     _: React.MouseEvent<HTMLElement>,

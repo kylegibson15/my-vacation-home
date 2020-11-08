@@ -8,11 +8,10 @@ import {
   pageVariants
 } from '../../constants';
 import { TPosition } from '../../types';
-import { bear, buffalo, moose, yellowstone } from '../../images';
+import { moose, yellowstone } from '../../images';
 import MessageWithPicture from '../MessageWithPicture';
 import RestaurantGridList from '../RestaurantGridList';
-import { TransitCard, TopicCard, WiFiCard } from '../cards';
-import DividerWithText from '../DividerWithText';
+import { TransitCard, WiFiCard } from '../cards';
 
 function Home() {
   return (
@@ -30,19 +29,7 @@ function Home() {
         picture={moose}
       />
       <TransitCard />
-      <MessageWithPicture
-        divider={{ position: TPosition.Top, text: 'Another' }}
-        messages={midwayMessages}
-        picture={bear}
-      />
       <RestaurantGridList />
-      <DividerWithText value="Hot Tub" />
-      <MessageWithPicture
-        divider={{ position: TPosition.Bottom, text: 'Midway' }}
-        messages={midwayMessages}
-        picture={buffalo}
-      />
-      <TopicCard border />
       <MessageWithPicture
         divider={{ position: TPosition.Top, text: 'WP' }}
         messages={midwayMessages}

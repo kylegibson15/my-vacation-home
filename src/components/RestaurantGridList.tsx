@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 
 import restaurants from '../images/restaurants';
 
@@ -10,8 +10,11 @@ import { useRestaurantGridListStyles } from './styles';
 export default function ImageGridList() {
   const classes = useRestaurantGridListStyles();
   return (
-    <Grid container>
+    <Grid container justify="center">
       <DividerWithText value="Restaurants" />
+      <Typography color="textSecondary" variant="subtitle2">
+        click a restaurant for more info
+      </Typography>
       <Grid className={classes.imagesContainer} container item>
         {restaurants.map(({ directions, slide, src, title }) => {
           return (

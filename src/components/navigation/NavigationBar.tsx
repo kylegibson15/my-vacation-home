@@ -4,7 +4,6 @@ import {
   Container,
   Fab,
   IconButton,
-  InputBase,
   Toolbar,
   Typography
 } from '@material-ui/core';
@@ -20,7 +19,8 @@ import MobileMenu from './MobileMenu';
 
 const locationTitles: Record<string, string> = {
   '/my-vacation-home': 'Home',
-  '/my-vacation-home/check-out': 'Check Out'
+  '/my-vacation-home/check-out': 'Checking Out',
+  '/my-vacation-home/fireplace': 'Fireplace'
 };
 
 interface Props {
@@ -78,19 +78,6 @@ function NavigationBar({ children, ...props }: Props) {
           <Typography variant="h6" noWrap>
             {locationTitles[pathname]}
           </Typography>
-          {/* <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div> */}
           <SectionDesktop />
           <SectionMobile onOpen={handleMobileMenuOpen} />
         </Toolbar>

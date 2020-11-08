@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Badge, IconButton, Menu, MenuItem } from '@material-ui/core';
 import {
   AssignmentTurnedInOutlined,
-  Mail,
-  Notifications
+  Fireplace,
+  Mail
 } from '@material-ui/icons';
 
 interface IProps {
@@ -33,13 +33,16 @@ function MobileMenu({ anchorEl, isOpen, onCloseMenu }: IProps) {
         </IconButton>
         <p>Messages</p>
       </MenuItem>
-      <MenuItem dense>
+      <MenuItem
+        component={Link}
+        dense
+        onClick={onCloseMenu}
+        to="/my-vacation-home/fireplace"
+      >
         <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <Notifications />
-          </Badge>
+          <Fireplace />
         </IconButton>
-        <p>Notifications</p>
+        <p>Fireplace</p>
       </MenuItem>
       <MenuItem
         component={Link}

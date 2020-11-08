@@ -2,7 +2,7 @@ import { createStyles, fade, makeStyles, Theme } from '@material-ui/core';
 
 const useNavigationBarStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
+    scrollToTopButton: {
       position: 'fixed',
       bottom: theme.spacing(2),
       right: theme.spacing(2)

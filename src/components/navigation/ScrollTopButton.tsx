@@ -28,7 +28,11 @@ function ScrollTopButton({ children }: Props) {
 
   return (
     <Zoom in={trigger && pathname === '/my-vacation-home'}>
-      <div onClick={handleClick} role="presentation" className={classes.root}>
+      <div
+        onClick={handleClick}
+        role="presentation"
+        className={classes.scrollToTopButton}
+      >
         {children}
       </div>
     </Zoom>

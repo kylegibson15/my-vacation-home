@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { NavLink } from 'react-router-dom';
 import {
   Button,
   Container,
-  Chip,
   makeStyles,
   Paper,
   Step,
@@ -13,7 +11,6 @@ import {
   Stepper,
   Typography
 } from '@material-ui/core';
-import { ArrowBack } from '@material-ui/icons';
 
 import StepIcon from './StepIcon';
 
@@ -43,9 +40,8 @@ function getSteps() {
     'Dishes',
     'Lights',
     'Thermostat',
-    'Linens',
-    'Keys',
-    'Beds'
+    'Beds/Linens',
+    'Keys'
   ];
 }
 
@@ -64,12 +60,11 @@ function getStepContent(step: number) {
     case 4:
       return `Please make sure the the heat is left on 55 degrees`;
     case 5:
-      return `Any unused linens/ towels should remain in place. Place all used towels on the tile floor.`;
+      return `Please strip the beds. Any unused linens/ towels should remain in place.
+              Place all used towels on the tile floor.`;
     case 6:
       return `Return the lockbox key back to its place in the lockbox. 
               The 2 sets of keys that you found inside the condo need to be put back on the wooden counter area.`;
-    case 7:
-      return `Please strip the beds.`;
     default:
       return 'Unknown step';
   }
@@ -119,7 +114,7 @@ function CheckOut() {
       variants={pageVariants}
     >
       <Container className={classes.root}>
-        <Typography variant="h3" color="textPrimary">
+        <Typography variant="h5" color="textPrimary">
           Checking Out
         </Typography>
         <Stepper activeStep={activeStep} orientation="vertical">
@@ -167,24 +162,6 @@ function CheckOut() {
             </Button>
           </Paper>
         )}
-        <NavLink to="/my-vacation-home">
-          <Chip
-            icon={<ArrowBack style={{ color: 'white' }} />}
-            label="Return"
-            size="small"
-            style={{
-              boxShadow:
-                '0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12)',
-              color: 'white',
-              backgroundColor: '#CA761B',
-              padding: '0px 8px',
-              position: 'fixed',
-              bottom: 15,
-              right: 15,
-              zIndex: 10
-            }}
-          />
-        </NavLink>
       </Container>
     </motion.div>
   );
