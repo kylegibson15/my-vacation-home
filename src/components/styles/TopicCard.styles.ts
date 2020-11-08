@@ -2,10 +2,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  topicCard: {
     backgroundColor: 'transparent',
     padding: 0,
-    margin: 12
+    margin: 0
   },
   title: {
     fontSize: 14

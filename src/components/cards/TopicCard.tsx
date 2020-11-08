@@ -53,7 +53,7 @@ export default function TopicCard({
   };
 
   return (
-    <Card className={classes.root} elevation={border ? 6 : 0}>
+    <Card className={classes.topicCard} elevation={border ? 6 : 0}>
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
