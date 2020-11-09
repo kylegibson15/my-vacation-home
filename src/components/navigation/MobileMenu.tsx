@@ -14,7 +14,6 @@ interface IProps {
 }
 
 function MobileMenu({ anchorEl, isOpen, onCloseMenu }: IProps) {
-
   return (
     <Menu
       anchorEl={anchorEl}
