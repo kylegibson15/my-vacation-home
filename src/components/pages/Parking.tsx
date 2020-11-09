@@ -11,7 +11,7 @@ import {
 import { pageTransition, pageVariants } from '../../constants';
 
 const useStyles = makeStyles((theme: Theme) => ({
-  fireplace: {
+  parking: {
     height: '100%',
     width: '100vw',
     flexGrow: 1,
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-function Fireplace() {
+function Parking() {
   const classes = useStyles();
   return (
     <motion.div
@@ -35,21 +35,15 @@ function Fireplace() {
       transition={pageTransition}
       variants={pageVariants}
     >
-      <Container className={classes.fireplace}>
+      <Container className={classes.parking}>
         <Paper square elevation={0} className={classes.resetContainer}>
           <Typography variant="h4" color="textPrimary">
-            Fireplace
+            Parking
           </Typography>
 
           <Typography variant="body2">
-            The thermostat that controls the fireplace is located on the wall in
-            the second shelf from the bottom. To turn on the fireplace, move the
-            switch to the left to the “Heat” setting. If the fireplace does not
-            turn on, then increase the temperature until it turns on. If you
-            want the fireplace to turn off, move the switch to the center to the
-            “off”setting. **since the thermostat is difficult to see, there is
-            flashlight in the top drawer in the kitchen (next to the
-            refrigerator).**
+            Parking is located underneath the building and unassigned but only
+            one car please.
           </Typography>
         </Paper>
       </Container>
@@ -57,4 +51,4 @@ function Fireplace() {
   );
 }
 
-export default Fireplace;
+export default Parking;

@@ -9,7 +9,7 @@ const useDividerWithTextStyles = makeStyles((theme) => ({
   },
   dividerBorder: {
     borderBottom: '2px solid lightgray',
-    width: '100%'
+    width: '50%'
   },
   dividerText: {
     display: 'flex',

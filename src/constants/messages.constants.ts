@@ -2,7 +2,7 @@ export const introMessages = [
   `We are thrilled that you have chosen our mountain retreat for your own getaway! 
   Whether you are here for world class skiing, extreme mountIan biking, scenic hiking, 
   or just to relax, we hope your stay is everything you envisioned. 
-  Colorado is our permanent home and Grant County is our favorite place to be! 
+  Colorado is our permanent home and Grand County is our favorite place to be! 
   Strolling along Fraser River, enjoying the many year round activities at Winter Park Resort, 
   relaxing at a brewery  or distillery, eating at the many restaurants at the doorsteps of your condo…  
   These are a few of our favorite things.`,
@@ -12,7 +12,7 @@ export const introMessages = [
 ];
 
 export const midwayMessages = [
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  'L.',
   'eleifend donec pretium vulputate sapien',
   'ac tortor dignissim convallis aenean'
 ];

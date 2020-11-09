@@ -1,16 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import {
-  introMessages,
-  midwayMessages,
-  pageTransition,
-  pageVariants
-} from '../../constants';
+import { introMessages, pageTransition, pageVariants } from '../../constants';
 import { TPosition } from '../../types';
-import { moose, yellowstone } from '../../images';
+import { moose } from '../../images';
 import MessageWithPicture from '../MessageWithPicture';
 import RestaurantGridList from '../RestaurantGridList';
+import QuickReference from '../QuickReference';
 import { TransitCard, WiFiCard } from '../cards';
 
 function Home() {
@@ -30,11 +26,7 @@ function Home() {
       />
       <TransitCard />
       <RestaurantGridList />
-      <MessageWithPicture
-        divider={{ position: TPosition.Top, text: 'WP' }}
-        messages={midwayMessages}
-        picture={yellowstone}
-      />
+      <QuickReference />
     </motion.div>
   );
 }

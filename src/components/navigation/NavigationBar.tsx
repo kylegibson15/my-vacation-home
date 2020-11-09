@@ -20,7 +20,12 @@ import MobileMenu from './MobileMenu';
 const locationTitles: Record<string, string> = {
   '/my-vacation-home': 'Home',
   '/my-vacation-home/check-out': 'Checking Out',
-  '/my-vacation-home/fireplace': 'Fireplace'
+  '/my-vacation-home/fireplace': 'Fireplace',
+  '/my-vacation-home/parking': 'Parking',
+  '/my-vacation-home/contact': 'Contact Us',
+  '/my-vacation-home/general': 'General Info',
+  '/my-vacation-home/kitchen': 'Kitchen',
+  '/my-vacation-home/entertainment': 'Entertainment'
 };
 
 interface Props {
