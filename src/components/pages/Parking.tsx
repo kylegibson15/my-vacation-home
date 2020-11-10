@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(2, 0),
     margin: 0,
-    overflowY: 'hidden'
+    overflow: 'hidden'
   },
   image: {
     height: '50%',

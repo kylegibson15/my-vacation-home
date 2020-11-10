@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
   checkout: {
     width: '100vw',
     height: '100%',
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: theme.palette.background.paper,
+    overflowY: 'scroll'
   },
   button: {
     marginTop: theme.spacing(1),
