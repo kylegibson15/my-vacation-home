@@ -45,6 +45,7 @@ function Entertainment() {
       initial="initial"
       animate="in"
       exit="out"
+      style={{ height: '100%' }}
       transition={pageTransition}
       variants={pageVariants}
     >

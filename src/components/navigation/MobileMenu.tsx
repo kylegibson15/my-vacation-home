@@ -1,17 +1,59 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Badge, IconButton, Menu, MenuItem } from '@material-ui/core';
+import { Menu } from '@material-ui/core';
 import {
   AssignmentTurnedInOutlined,
+  ContactPhone,
   Fireplace,
-  Mail
+  Info,
+  Kitchen,
+  LocalParking,
+  SportsEsports
 } from '@material-ui/icons';
+
+import MobileMenuItem from './MobileMenuItem';
 
 interface IProps {
   anchorEl: any;
   isOpen: boolean;
   onCloseMenu: any;
 }
+const items = [
+  {
+    icon: AssignmentTurnedInOutlined,
+    path: '/my-vacation-home/check-out',
+    title: 'Checking Out'
+  },
+  {
+    icon: Fireplace,
+    path: '/my-vacation-home/fireplace',
+    title: 'Fireplace'
+  },
+  {
+    icon: LocalParking,
+    path: '/my-vacation-home/parking',
+    title: 'Parking'
+  },
+  {
+    icon: ContactPhone,
+    path: '/my-vacation-home/contact',
+    title: 'Contact Us'
+  },
+  {
+    icon: Info,
+    path: '/my-vacation-home/general',
+    title: 'General Info'
+  },
+  {
+    icon: Kitchen,
+    path: '/my-vacation-home/kitchen',
+    title: 'Kitchen'
+  },
+  {
+    icon: SportsEsports,
+    path: '/my-vacation-home/entertainment',
+    title: 'Entertainment'
+  } 
+];
 
 function MobileMenu({ anchorEl, isOpen, onCloseMenu }: IProps) {
   return (
@@ -23,42 +65,19 @@ function MobileMenu({ anchorEl, isOpen, onCloseMenu }: IProps) {
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isOpen}
       onClose={onCloseMenu}
+      style={{ padding: 6 }}
     >
-      <MenuItem dense>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <Mail />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem
-        component={Link}
-        dense
-        onClick={onCloseMenu}
-        to="/my-vacation-home/fireplace"
-      >
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Fireplace />
-        </IconButton>
-        <p>Fireplace</p>
-      </MenuItem>
-      <MenuItem
-        component={Link}
-        dense
-        onClick={onCloseMenu}
-        to="/my-vacation-home/check-out"
-      >
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AssignmentTurnedInOutlined />
-        </IconButton>
-        <p>Check Out</p>
-      </MenuItem>
+      {items.map(({ icon, path, title }) => {
+        return (
+          <MobileMenuItem
+            key={path}
+            Icon={icon}
+            onClose={onCloseMenu}
+            path={path}
+            title={title}
+          />
+        );
+      })}
     </Menu>
   );
 }

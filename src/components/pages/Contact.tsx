@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Container,
+  Grid,
   makeStyles,
   Paper,
   Theme,
@@ -9,6 +10,7 @@ import {
 } from '@material-ui/core';
 
 import { pageTransition, pageVariants } from '../../constants';
+import { buffalo } from '../../images';
 
 const useStyles = makeStyles((theme: Theme) => ({
   contact: {
@@ -20,7 +22,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: 0,
     overflowY: 'hidden'
   },
+  image: {
+    height: '50%',
+    padding: theme.spacing(6)
+  },
   resetContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+    height: '100%',
     padding: theme.spacing(3)
   }
 }));
@@ -32,6 +42,7 @@ function Contact() {
       initial="initial"
       animate="in"
       exit="out"
+      style={{ height: '100%' }}
       transition={pageTransition}
       variants={pageVariants}
     >
@@ -44,6 +55,10 @@ function Contact() {
           <Typography variant="body2">
             Message or call Vacasa at. They will be able to help you.
           </Typography>
+
+          <Grid container item justify="center">
+            <img alt="wood-ball" className={classes.image} src={buffalo} />
+          </Grid>
         </Paper>
       </Container>
     </motion.div>

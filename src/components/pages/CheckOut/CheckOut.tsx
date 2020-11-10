@@ -17,11 +17,10 @@ import { pageTransition, pageVariants } from '../../../constants';
 import StepIcon from './StepIcon';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  checkout: {
     width: '100vw',
-    height: '100vh',
-    backgroundColor: theme.palette.background.paper,
-    paddingTop: theme.spacing(2)
+    height: '100%',
+    backgroundColor: theme.palette.background.paper
   },
   button: {
     marginTop: theme.spacing(1),
@@ -94,13 +93,14 @@ function CheckOut() {
       initial="initial"
       animate="in"
       exit="out"
+      style={{ height: '100%' }}
       transition={pageTransition}
       variants={pageVariants}
     >
-      <Container className={classes.root}>
-        <Typography variant="h5" color="textPrimary">
+      <Container className={classes.checkout}>
+        {/* <Typography variant="h5" color="textPrimary">
           Checking Out
-        </Typography>
+        </Typography> */}
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((label, index) => (
             <Step key={label}>

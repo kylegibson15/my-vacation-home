@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Container,
+  Grid,
   makeStyles,
   Paper,
   Theme,
@@ -9,6 +10,7 @@ import {
 } from '@material-ui/core';
 
 import { pageTransition, pageVariants } from '../../constants';
+import { wood_ball } from '../../images';
 
 const useStyles = makeStyles((theme: Theme) => ({
   fireplace: {
@@ -20,7 +22,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: 0,
     overflowY: 'hidden'
   },
+  image: {
+    height: '10%',
+    padding: theme.spacing(6)
+  },
   resetContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+    height: '100%',
     padding: theme.spacing(3)
   }
 }));
@@ -32,6 +42,7 @@ function Fireplace() {
       initial="initial"
       animate="in"
       exit="out"
+      style={{ height: '100%' }}
       transition={pageTransition}
       variants={pageVariants}
     >
@@ -51,6 +62,10 @@ function Fireplace() {
             flashlight in the top drawer in the kitchen (next to the
             refrigerator).**
           </Typography>
+
+          <Grid container item justify="center">
+            <img alt="wood-ball" className={classes.image} src={wood_ball} />
+          </Grid>
         </Paper>
       </Container>
     </motion.div>

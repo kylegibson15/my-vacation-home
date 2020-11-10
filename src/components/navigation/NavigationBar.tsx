@@ -65,8 +65,8 @@ function NavigationBar({ children, ...props }: Props) {
     <>
       <AppBar
         style={{
-          backgroundImage:
-            'linear-gradient(to right, #374364, #364a68, #37506b, #39566e, #3c5c70, #2e6576, #1e6e78, #167675, #27805f, #59863b, #8f8417, #ca761b)'
+          background: '#39566e'
+          // background: 'linear-gradient(to right, #004e92, #000428)'
         }}
       >
         <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>

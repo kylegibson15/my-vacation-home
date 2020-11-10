@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Container,
+  Grid,
   makeStyles,
   Paper,
   Theme,
@@ -9,6 +10,7 @@ import {
 } from '@material-ui/core';
 
 import { pageTransition, pageVariants } from '../../constants';
+import { bear } from '../../images';
 
 const useStyles = makeStyles((theme: Theme) => ({
   parking: {
@@ -20,7 +22,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: 0,
     overflowY: 'hidden'
   },
+  image: {
+    height: '50%',
+    padding: theme.spacing(6)
+  },
   resetContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+    height: '100%',
     padding: theme.spacing(3)
   }
 }));
@@ -32,6 +42,7 @@ function Parking() {
       initial="initial"
       animate="in"
       exit="out"
+      style={{ height: '100%' }}
       transition={pageTransition}
       variants={pageVariants}
     >
@@ -45,6 +56,10 @@ function Parking() {
             Parking is located underneath the building and unassigned but only
             one car please.
           </Typography>
+
+          <Grid container item justify="center">
+            <img alt="wood-ball" className={classes.image} src={bear} />
+          </Grid>
         </Paper>
       </Container>
     </motion.div>
