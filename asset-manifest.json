@@ -1,31 +1,33 @@
 {
   "files": {
-    "main.css": "/my-vacation-home/static/css/main.f8fc7053.chunk.css",
-    "main.js": "/my-vacation-home/static/js/main.4e2a70e0.chunk.js",
-    "main.js.map": "/my-vacation-home/static/js/main.4e2a70e0.chunk.js.map",
+    "main.css": "/my-vacation-home/static/css/main.92ab2025.chunk.css",
+    "main.js": "/my-vacation-home/static/js/main.66090d51.chunk.js",
+    "main.js.map": "/my-vacation-home/static/js/main.66090d51.chunk.js.map",
     "runtime-main.js": "/my-vacation-home/static/js/runtime-main.f8a1afde.js",
     "runtime-main.js.map": "/my-vacation-home/static/js/runtime-main.f8a1afde.js.map",
-    "static/js/2.e99ada7e.chunk.js": "/my-vacation-home/static/js/2.e99ada7e.chunk.js",
-    "static/js/2.e99ada7e.chunk.js.map": "/my-vacation-home/static/js/2.e99ada7e.chunk.js.map",
+    "static/js/2.0127e63e.chunk.js": "/my-vacation-home/static/js/2.0127e63e.chunk.js",
+    "static/js/2.0127e63e.chunk.js.map": "/my-vacation-home/static/js/2.0127e63e.chunk.js.map",
     "index.html": "/my-vacation-home/index.html",
-    "static/css/main.f8fc7053.chunk.css.map": "/my-vacation-home/static/css/main.f8fc7053.chunk.css.map",
-    "static/js/2.e99ada7e.chunk.js.LICENSE.txt": "/my-vacation-home/static/js/2.e99ada7e.chunk.js.LICENSE.txt",
+    "static/css/main.92ab2025.chunk.css.map": "/my-vacation-home/static/css/main.92ab2025.chunk.css.map",
+    "static/js/2.0127e63e.chunk.js.LICENSE.txt": "/my-vacation-home/static/js/2.0127e63e.chunk.js.LICENSE.txt",
     "static/media/TheLiftWinterPark.cb6e8c3a.jpg": "/my-vacation-home/static/media/TheLiftWinterPark.cb6e8c3a.jpg",
     "static/media/bear.132a0a56.png": "/my-vacation-home/static/media/bear.132a0a56.png",
     "static/media/big-trout-brewing.a606add4.jpeg": "/my-vacation-home/static/media/big-trout-brewing.a606add4.jpeg",
     "static/media/buffalo.dfe835ba.png": "/my-vacation-home/static/media/buffalo.dfe835ba.png",
     "static/media/casa-mexico.c4d7b6e3.jpg": "/my-vacation-home/static/media/casa-mexico.c4d7b6e3.jpg",
     "static/media/ciao-monte.91d21f2b.png": "/my-vacation-home/static/media/ciao-monte.91d21f2b.png",
+    "static/media/coaster.cec4e0c6.jpeg": "/my-vacation-home/static/media/coaster.cec4e0c6.jpeg",
     "static/media/durbar.7e545fc8.jpeg": "/my-vacation-home/static/media/durbar.7e545fc8.jpeg",
     "static/media/moose.8b91ecd7.png": "/my-vacation-home/static/media/moose.8b91ecd7.png",
     "static/media/paellas.a9e50f39.png": "/my-vacation-home/static/media/paellas.a9e50f39.png",
     "static/media/sushi-nama.d95631bc.jpg": "/my-vacation-home/static/media/sushi-nama.d95631bc.jpg",
+    "static/media/wood-ball.c64af162.jpeg": "/my-vacation-home/static/media/wood-ball.c64af162.jpeg",
     "static/media/yellowstone-buffalo.6858883e.png": "/my-vacation-home/static/media/yellowstone-buffalo.6858883e.png"
   },
   "entrypoints": [
     "static/js/runtime-main.f8a1afde.js",
-    "static/js/2.e99ada7e.chunk.js",
-    "static/css/main.f8fc7053.chunk.css",
-    "static/js/main.4e2a70e0.chunk.js"
+    "static/js/2.0127e63e.chunk.js",
+    "static/css/main.92ab2025.chunk.css",
+    "static/js/main.66090d51.chunk.js"
   ]
 }
