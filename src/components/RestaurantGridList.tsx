@@ -16,17 +16,21 @@ export default function ImageGridList() {
         click a restaurant for more info
       </Typography>
       <Grid className={classes.imagesContainer} container item>
-        {restaurants.map(({ directions, slide, src, title }) => {
-          return (
-            <ImageWithDialog
-              directions={directions}
-              key={`${src}-${slide}`}
-              slide={slide}
-              src={src}
-              title={title}
-            />
-          );
-        })}
+        {restaurants.map(
+          ({ cuisine, messages, directions, slide, src, title }) => {
+            return (
+              <ImageWithDialog
+                cuisine={cuisine}
+                messages={messages}
+                directions={directions}
+                key={`${src}-${slide}`}
+                slide={slide}
+                src={src}
+                title={title}
+              />
+            );
+          }
+        )}
       </Grid>
     </Grid>
   );

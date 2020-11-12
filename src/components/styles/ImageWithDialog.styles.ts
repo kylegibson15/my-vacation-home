@@ -6,7 +6,6 @@ const useImageWithDialogStyles = makeStyles((theme: Theme) =>
       alignSelf: 'flex-end'
     },
     content: {
-      maxHeight: '90vh',
       maxWidth: '90vw',
       backgroundColor: theme.palette.background.paper,
       boxShadow:
@@ -44,7 +43,8 @@ const useImageWithDialogStyles = makeStyles((theme: Theme) =>
       top: 0,
       display: 'flex',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      overflowY: 'scroll'
     }
   })
 );

@@ -56,7 +56,7 @@ function getStepContent(step: number) {
       return `Bag all trash and place it in the trash collection area. 
               The trash bins are located in the garage outside the door.`;
     case 2:
-      return `Load and run the dishwasher.`;
+      return `Load and run the dishwasher. Dishwasher pods are in the cabinet under the sink.`;
     case 3:
       return 'Turn off all Lights.';
     case 4:
@@ -65,8 +65,7 @@ function getStepContent(step: number) {
       return `Please strip the beds. Any unused linens/ towels should remain in place.
               Place all used towels on the tile floor.`;
     case 6:
-      return `Return the lockbox key back to its place in the lockbox. 
-              The 2 sets of keys that you found inside the condo need to be put back on the wooden counter area.`;
+      return `Return the lockbox key back to its place in the lockbox.`;
     default:
       return 'Unknown step';
   }
@@ -99,9 +98,6 @@ function CheckOut() {
       variants={pageVariants}
     >
       <Container className={classes.checkout}>
-        {/* <Typography variant="h5" color="textPrimary">
-          Checking Out
-        </Typography> */}
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((label, index) => (
             <Step key={label}>

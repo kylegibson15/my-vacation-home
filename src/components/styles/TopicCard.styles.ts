@@ -1,11 +1,17 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { red } from '@material-ui/core/colors';
+import { green } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   topicCard: {
     backgroundColor: 'transparent',
     padding: 0,
     margin: 0
+  },
+  chip: {
+    margin: theme.spacing(0, 1)
+  },
+  reducedPadding: {
+    padding: theme.spacing(1)
   },
   title: {
     fontSize: 14
@@ -34,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     transform: 'rotate(180deg)'
   },
   avatar: {
-    backgroundColor: red[500]
+    backgroundColor: green[500]
   }
 }));
 

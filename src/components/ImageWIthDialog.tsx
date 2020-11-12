@@ -7,6 +7,8 @@ import { TopicCard } from './cards';
 import { useImageWithDialogStyles } from './styles';
 
 function ImageWithDialog({
+  cuisine,
+  messages,
   // directions,
   slide,
   src,
@@ -32,9 +34,16 @@ function ImageWithDialog({
         <Paper elevation={4} className={classes.paper}>
           <Grid className={classes.content} container spacing={4}>
             <Grid className={classes.mainContent} item>
-              <TopicCard img={src} title={title} />
+              <TopicCard
+                cuisine={cuisine}
+                messages={messages}
+                expandable
+                handleClose={handleChange}
+                img={src}
+                title={title}
+              />
             </Grid>
-            <Grid item>
+            {/* <Grid item>
               <Button
                 className={classes.close}
                 color="secondary"
@@ -44,7 +53,7 @@ function ImageWithDialog({
               >
                 Close
               </Button>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Paper>
       </Slide>

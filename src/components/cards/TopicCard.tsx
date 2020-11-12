@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import clsx from 'clsx';
 import {
   Avatar,
@@ -7,18 +7,22 @@ import {
   CardMedia,
   CardContent,
   CardActions,
+  Chip,
+  Collapse,
   IconButton,
   Typography
 } from '@material-ui/core';
 import {
+  Close,
   Directions,
   Favorite,
   Share,
   ExpandMore,
-  MoreVert
+  Restaurant
 } from '@material-ui/icons';
 
 import { useTopicCardStyles } from '../styles';
+import { IMessages } from '../../interfaces';
 
 // function mapsSelector() {
 //   // Big Trout Brewing Company, 50 Vasquez Rd, Winter Park, CO 80482
@@ -33,15 +37,21 @@ import { useTopicCardStyles } from '../styles';
 // }
 
 interface ITopicCardProps {
+  cuisine?: string[];
   border?: boolean;
+  messages: IMessages;
   expandable?: boolean;
+  handleClose?: any;
   img?: string;
   title?: string;
 }
 
 export default function TopicCard({
+  cuisine,
   border,
+  messages,
   expandable,
+  handleClose,
   img,
   title
 }: ITopicCardProps) {
@@ -52,20 +62,37 @@ export default function TopicCard({
     setExpanded(!expanded);
   };
 
+  const cuisineChips = useMemo(() => {
+    return cuisine
+      ? cuisine.map((type) => {
+          return (
+            <Chip
+              className={classes.chip}
+              key={type}
+              size="small"
+              label={type}
+            />
+          );
+        })
+      : [];
+  }, []);
+
   return (
     <Card className={classes.topicCard} elevation={border ? 6 : 0}>
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            {title?.split('')[0] || 'R'}
+            <Restaurant />
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
-            <MoreVert />
-          </IconButton>
+          handleClose ? (
+            <IconButton aria-label="close-button" onClick={handleClose}>
+              <Close />
+            </IconButton>
+          ) : null
         }
-        title={title || 'Shrimp and Chorizo Paella'}
+        title={cuisineChips}
       />
       <CardMedia
         classes={{ root: classes.background }}
@@ -75,9 +102,7 @@ export default function TopicCard({
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          {messages.main}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -90,7 +115,7 @@ export default function TopicCard({
         <IconButton aria-label="direction">
           <Directions />
         </IconButton>
-        {expandable ? (
+        {expandable && messages.more ? (
           <IconButton
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded
@@ -103,6 +128,18 @@ export default function TopicCard({
           </IconButton>
         ) : null}
       </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          {messages &&
+            messages.more?.map((message) => {
+              return (
+                <Typography key={message.substr(0, 5)} paragraph>
+                  {message}
+                </Typography>
+              );
+            })}
+        </CardContent>
+      </Collapse>
     </Card>
   );
 }
