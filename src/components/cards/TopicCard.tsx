@@ -25,7 +25,7 @@ function mapsSelector(directions: string) {
     navigator.platform.indexOf('iPad') !== -1 ||
     navigator.platform.indexOf('iPod') !== -1
   ) {
-    window.open(`maps://maps.google.com/maps/dir/${directions}`);
+    window.open(`maps://maps.google.com/maps/${directions}`);
   } else {
     window.open(`https://maps.google.com/maps/dir/${directions}`);
   }
