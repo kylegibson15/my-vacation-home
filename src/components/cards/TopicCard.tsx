@@ -18,22 +18,22 @@ import { Close, Directions, Restaurant } from '@material-ui/icons';
 import { useTopicCardStyles } from '../styles';
 import { IMessages } from '../../interfaces';
 
-function mapsSelector(directions: string) {
+function mapsSelector({ mobile, web }: { web: string; mobile: string }) {
   if (
     /* if we're on iOS, open in Apple Maps */
     navigator.platform.indexOf('iPhone') !== -1 ||
     navigator.platform.indexOf('iPad') !== -1 ||
     navigator.platform.indexOf('iPod') !== -1
   ) {
-    window.open(`maps://maps.google.com/maps/${directions}`);
+    window.open(`maps://maps.google.com/maps/dir/?daddr=${mobile}&amp;ll=`);
   } else {
-    window.open(`https://maps.google.com/maps/dir/${directions}`);
+    window.open(`https://maps.google.com/maps/dir/${web}`);
   }
 }
 
 interface ITopicCardProps {
   cuisine?: string[];
-  directions?: string;
+  directions: { mobile: string; web: string };
   border?: boolean;
   messages: IMessages;
   expandable?: boolean;
@@ -128,7 +128,7 @@ export default function TopicCard({
           <Grid container item>
             <IconButton
               aria-label="direction"
-              onClick={() => mapsSelector(directions as string)}
+              onClick={() => mapsSelector(directions)}
             >
               <Directions />
             </IconButton>

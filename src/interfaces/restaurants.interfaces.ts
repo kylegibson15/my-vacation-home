@@ -8,7 +8,7 @@ export interface IMessages {
 export interface IImageWithDialogProps {
   cuisine: string[];
   messages: IMessages;
-  directions: string;
+  directions: { web: string; mobile: string };
   slide: SlideProps['direction'];
   src: string;
   title?: string;
