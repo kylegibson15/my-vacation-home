@@ -16,8 +16,6 @@ const useDividerWithTextStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     paddingTop: theme.spacing(0.5),
     paddingBottom: theme.spacing(0.5),
-    paddingRight: theme.spacing(2),
-    paddingLeft: theme.spacing(2),
     fontWeight: 500,
     fontSize: 22,
     color: 'lightgray',

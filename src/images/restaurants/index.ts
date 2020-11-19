@@ -22,7 +22,7 @@ const restaurants: IImageWithDialogProps[] = [
         `We are excited to be able to do our part for the environment, the rivers we love to fish and this wonderful community.`
       ]
     },
-    directions: '',
+    directions: `/Big+Trout+Brewing+Company,+Vasquez+Road,+Winter+Park,+CO/@39.9174342,-105.8201299,13z/data=!3m2!4b1!5s0x876a34d39db2f50d:0x39c5e28dca130294!4m9!4m8!1m0!1m5!1m1!1s0x876a3585e5d30427:0xfd1cb3fab7f34f78!2m2!1d-105.7851104!2d39.9173736!3e0`,
     slide: 'up',
     src: bigTrout,
     title: 'Big Trout Brewing'
@@ -43,7 +43,7 @@ const restaurants: IImageWithDialogProps[] = [
         `Call ahead to arrange.`
       ]
     },
-    directions: '',
+    directions: `/Durbar+-+Nepalese+%26+Indian+Bistro,+Cooper+Creek+Way,+Winter+Park,+CO/@39.9176919,-105.8201244,13z/data=!3m2!4b1!5s0x876a34d39db2f50d:0x39c5e28dca130294!4m9!4m8!1m0!1m5!1m1!1s0x876a34d39e79d577:0x70b2ba6c566cdbf7!2m2!1d-105.7851049!2d39.9176313!3e0`,
     slide: 'down',
     src: durbar,
     title: 'Durbar'
@@ -61,7 +61,7 @@ const restaurants: IImageWithDialogProps[] = [
         `Join us for our Sushi classes.  More info to come!`
       ]
     },
-    directions: '',
+    directions: `/Sushi+Nama,+Cooper+Creek+Way,+Winter+Park,+CO/@39.9177558,-105.8200447,13z/data=!3m1!5s0x876a34d39db2f50d:0x39c5e28dca130294!4m9!4m8!1m0!1m5!1m1!1s0x876a358d27167ba7:0xcce92afdeca0ef8a!2m2!1d-105.7850252!2d39.9176952!3e0`,
     slide: 'left',
     src: sushiNama,
     title: 'Sushi Nama'
@@ -73,7 +73,7 @@ const restaurants: IImageWithDialogProps[] = [
              They are open daily (except Mondays) from 8am-2pm and offer a selection of coffee and tea, 
              an assortment of baked goods and amazing breakfast burritos.`
     },
-    directions: '',
+    directions: `/Lion+Head+Coffee,+East+Agate+Avenue,+Granby,+CO/@40.0851164,-105.9441725,16z/data=!3m1!5s0x876a34d39db2f50d:0x39c5e28dca130294!4m9!4m8!1m0!1m5!1m1!1s0x876a2f3407591e35:0xc2c37a89c22a3dc4!2m2!1d-105.9406529!2d40.0854582!3e0`,
     slide: 'right',
     src: lionHeadCoffee,
     title: "Lion Head's Coffee"
@@ -93,7 +93,7 @@ const restaurants: IImageWithDialogProps[] = [
         `Gluten Free Menu available.`
       ]
     },
-    directions: '',
+    directions: `/Casa+Mexico,+Cooper+Creek+Way,+Winter+Park,+CO/@39.9176726,-105.8207825,13z/data=!3m2!4b1!5s0x876a34d39db2f50d:0x39c5e28dca130294!4m9!4m8!1m0!1m5!1m1!1s0x876a34d3976f8d59:0xfaf53abcfb678d30!2m2!1d-105.785763!2d39.917612!3e0`,
     slide: 'up',
     src: casaMexico,
     title: 'Casa Mexico'
@@ -112,7 +112,7 @@ const restaurants: IImageWithDialogProps[] = [
       “Best Lunch & Service” Local Choice Awards two years in a row.`
       ]
     },
-    directions: '',
+    directions: `/New+Hong+Kong,+225,+Cooper+Creek+Way,+Winter+Park,+CO/@39.9177197,-105.8205645,13z/data=!3m1!5s0x876a34d39db2f50d:0x39c5e28dca130294!4m9!4m8!1m0!1m5!1m1!1s0x876a34d39a0c747d:0x12aae8641273e15b!2m2!1d-105.785545!2d39.9176591!3e0`,
     slide: 'down',
     src: newHongKong,
     title: 'New Hong Kong'
@@ -124,7 +124,7 @@ const restaurants: IImageWithDialogProps[] = [
              Japan and more. Located in downtown Winter Park in a rustic cottage at the far west 
              end of Cooper Creek Square.`
     },
-    directions: '',
+    directions: `/Paellas+Restaurant+and+bakery,+Cooper+Creek+Way,+Winter+Park,+CO/@39.9177247,-105.8209981,13z/data=!3m2!4b1!5s0x876a34d39db2f50d:0x39c5e28dca130294!4m9!4m8!1m0!1m5!1m1!1s0x876a355815d11c95:0xe0d17bd2e93e45b1!2m2!1d-105.7859786!2d39.9176641!3e0`,
     slide: 'left',
     src: paellas,
     title: 'Paellas'
@@ -137,7 +137,7 @@ const restaurants: IImageWithDialogProps[] = [
              Serving Antipasti, Soup, Salad, Pasta, Burger/Sandwich, gourmet pizza, signature steak & classic cocktail.
              Dine In, Patio Seating, Carry Out & Catering available.`
     },
-    directions: '',
+    directions: `/Ciao+Monte+Food+%26+Wine,+37+Cooper+Creek+Way+%23315,+Winter+Park,+CO+80482/@39.8052977,-105.695515,9.96z/data=!4m9!4m8!1m0!1m5!1m1!1s0x876a35221a77d85b:0x1331ac888c5516d0!2m2!1d-105.784661!2d39.9176919!3e0`,
     slide: 'right',
     src: ciaoMonte,
     title: 'Ciao Monte'

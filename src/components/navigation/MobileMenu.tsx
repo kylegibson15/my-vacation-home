@@ -52,7 +52,7 @@ const items = [
     icon: SportsEsports,
     path: '/my-vacation-home/entertainment',
     title: 'Entertainment'
-  } 
+  }
 ];
 
 function MobileMenu({ anchorEl, isOpen, onCloseMenu }: IProps) {

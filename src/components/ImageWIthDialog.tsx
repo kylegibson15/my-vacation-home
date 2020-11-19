@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Grid, Paper, Slide } from '@material-ui/core';
+import { Grid, Paper, Slide } from '@material-ui/core';
 
 import { IImageWithDialogProps } from '../interfaces';
 
@@ -9,7 +9,7 @@ import { useImageWithDialogStyles } from './styles';
 function ImageWithDialog({
   cuisine,
   messages,
-  // directions,
+  directions,
   slide,
   src,
   title
@@ -36,6 +36,7 @@ function ImageWithDialog({
             <Grid className={classes.mainContent} item>
               <TopicCard
                 cuisine={cuisine}
+                directions={directions}
                 messages={messages}
                 expandable
                 handleClose={handleChange}
@@ -43,17 +44,6 @@ function ImageWithDialog({
                 title={title}
               />
             </Grid>
-            {/* <Grid item>
-              <Button
-                className={classes.close}
-                color="secondary"
-                fullWidth
-                onClick={handleChange}
-                variant="contained"
-              >
-                Close
-              </Button>
-            </Grid> */}
           </Grid>
         </Paper>
       </Slide>

@@ -2,42 +2,38 @@ import React, { useMemo, useState } from 'react';
 import clsx from 'clsx';
 import {
   Avatar,
+  Button,
   Card,
   CardHeader,
   CardMedia,
   CardContent,
   CardActions,
   Chip,
-  Collapse,
+  Grid,
   IconButton,
   Typography
 } from '@material-ui/core';
-import {
-  Close,
-  Directions,
-  Favorite,
-  Share,
-  ExpandMore,
-  Restaurant
-} from '@material-ui/icons';
+import { Close, Directions, Restaurant } from '@material-ui/icons';
 
 import { useTopicCardStyles } from '../styles';
 import { IMessages } from '../../interfaces';
 
-// function mapsSelector() {
-//   // Big Trout Brewing Company, 50 Vasquez Rd, Winter Park, CO 80482
-//   if (
-//     /* if we're on iOS, open in Apple Maps */
-//     navigator.platform.indexOf('iPhone') !== -1 ||
-//     navigator.platform.indexOf('iPad') !== -1 ||
-//     navigator.platform.indexOf('iPod') !== -1
-//   )
-//     window.open(`maps://${directions}`);
-//   /* else use Google */ else window.open(`https://${directions}`);
-// }
+function mapsSelector(directions: string) {
+  if (
+    /* if we're on iOS, open in Apple Maps */
+    navigator.platform.indexOf('iPhone') !== -1 ||
+    navigator.platform.indexOf('iPad') !== -1 ||
+    navigator.platform.indexOf('iPod') !== -1
+  ) {
+    window.open(`maps://maps.google.com/maps/dir/${directions}`);
+  } else {
+    window.open(`https://maps.google.com/maps/dir/${directions}`);
+  }
+}
 
 interface ITopicCardProps {
   cuisine?: string[];
+  directions?: string;
   border?: boolean;
   messages: IMessages;
   expandable?: boolean;
@@ -48,6 +44,7 @@ interface ITopicCardProps {
 
 export default function TopicCard({
   cuisine,
+  directions,
   border,
   messages,
   expandable,
@@ -94,52 +91,69 @@ export default function TopicCard({
         }
         title={cuisineChips}
       />
-      <CardMedia
-        classes={{ root: classes.background }}
-        className={classes.media}
-        image={img ?? '/static/images/cards/paella.jpg'}
-        title="Paella dish"
-      />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {messages.main}
-        </Typography>
+      {!expanded ? (
+        <CardMedia
+          classes={{ root: classes.background }}
+          className={classes.media}
+          image={img}
+          title={title}
+        />
+      ) : null}
+      <CardContent style={{ maxHeight: '45vh', overflowY: 'scroll' }}>
+        {!expanded ? (
+          <Typography variant="body2" color="textSecondary" component="p">
+            {messages.main}
+          </Typography>
+        ) : (
+          <>
+            {messages &&
+              messages.more?.map((message) => {
+                return (
+                  <Typography
+                    key={message.substr(0, 5)}
+                    paragraph
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    {message}
+                  </Typography>
+                );
+              })}
+          </>
+        )}
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <Favorite />
-        </IconButton>
-        <IconButton aria-label="share">
-          <Share />
-        </IconButton>
-        <IconButton aria-label="direction">
-          <Directions />
-        </IconButton>
-        {expandable && messages.more ? (
-          <IconButton
-            className={clsx(classes.expand, {
-              [classes.expandOpen]: expanded
-            })}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
-            <ExpandMore />
-          </IconButton>
-        ) : null}
+        <Grid container direction="row" justify="space-between" wrap="nowrap">
+          <Grid container item>
+            <IconButton
+              aria-label="direction"
+              onClick={() => mapsSelector(directions as string)}
+            >
+              <Directions />
+            </IconButton>
+          </Grid>
+
+          <Grid container item justify="flex-end">
+            {expandable && messages.more ? (
+              <Button
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: expanded
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              >
+                {!expanded ? (
+                  <Typography>More</Typography>
+                ) : (
+                  <Typography>Less</Typography>
+                )}
+              </Button>
+            ) : null}
+          </Grid>
+        </Grid>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          {messages &&
-            messages.more?.map((message) => {
-              return (
-                <Typography key={message.substr(0, 5)} paragraph>
-                  {message}
-                </Typography>
-              );
-            })}
-        </CardContent>
-      </Collapse>
     </Card>
   );
 }

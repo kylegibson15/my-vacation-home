@@ -31,13 +31,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'contain !important'
   },
   expand: {
-    transform: 'rotate(0deg)',
+    transform: 'rotateX(0deg)',
     transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest
+      duration: theme.transitions.duration.short
     })
   },
   expandOpen: {
-    transform: 'rotate(180deg)'
+    transform: 'rotateX(360deg)'
   },
   avatar: {
     backgroundColor: green[500]

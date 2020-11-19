@@ -1,9 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { red } from '@material-ui/core/colors';
 
 const useTransitCardStyles = makeStyles(() => ({
   avatar: {
-    backgroundColor: red[500]
+    backgroundColor: 'rgb(244, 67, 54)'
   },
   cardActions: { display: 'flex', justifyContent: 'flex-end' },
   container: {
@@ -17,8 +16,8 @@ const useTransitCardStyles = makeStyles(() => ({
     margin: '5px'
   },
   fabApple: {
-    background: '#374364',
-    backgroundColor: '#374364',
+    background: 'rgb(55, 67, 100)',
+    backgroundColor: 'rgb(55, 67, 100)',
     margin: '5px'
   },
   media: {
