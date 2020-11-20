@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/my-vacation-home/static/css/main.92ab2025.chunk.css",
-    "main.js": "/my-vacation-home/static/js/main.c6a2eb88.chunk.js",
-    "main.js.map": "/my-vacation-home/static/js/main.c6a2eb88.chunk.js.map",
+    "main.js": "/my-vacation-home/static/js/main.8c7904b2.chunk.js",
+    "main.js.map": "/my-vacation-home/static/js/main.8c7904b2.chunk.js.map",
     "runtime-main.js": "/my-vacation-home/static/js/runtime-main.f8a1afde.js",
     "runtime-main.js.map": "/my-vacation-home/static/js/runtime-main.f8a1afde.js.map",
     "static/js/2.9992c0fe.chunk.js": "/my-vacation-home/static/js/2.9992c0fe.chunk.js",
@@ -28,6 +28,6 @@
     "static/js/runtime-main.f8a1afde.js",
     "static/js/2.9992c0fe.chunk.js",
     "static/css/main.92ab2025.chunk.css",
-    "static/js/main.c6a2eb88.chunk.js"
+    "static/js/main.8c7904b2.chunk.js"
   ]
 }
