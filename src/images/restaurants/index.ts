@@ -24,7 +24,7 @@ const restaurants: IImageWithDialogProps[] = [
     },
     directions: {
       web: `/Big+Trout+Brewing+Company,+Vasquez+Road,+Winter+Park,+CO/@39.9174342,-105.8201299,13z/data=!3m2!4b1!5s0x876a34d39db2f50d:0x39c5e28dca130294!4m9!4m8!1m0!1m5!1m1!1s0x876a3585e5d30427:0xfd1cb3fab7f34f78!2m2!1d-105.7851104!2d39.9173736!3e0`,
-      mobile: `39.9174342,-105.8201299`
+      mobile: `Big%20Trout%20Brewing%20Company%2050%20Vasquez%20Rd%20Winter%20Park%20CO%2080482`
     },
     slide: 'up',
     src: bigTrout,
@@ -47,7 +47,7 @@ const restaurants: IImageWithDialogProps[] = [
       ]
     },
     directions: {
-      mobile: `39.9176919,-105.8201244`,
+      mobile: `Durbar%20-%20Nepalese%20%26%20Indian%20Bistro%20Cooper%20Creek%20Way%20Winter%20Park%20CO`,
       web: `/Durbar+-+Nepalese+%26+Indian+Bistro,+Cooper+Creek+Way,+Winter+Park,+CO/@39.9176919,-105.8201244,13z/data=!3m2!4b1!5s0x876a34d39db2f50d:0x39c5e28dca130294!4m9!4m8!1m0!1m5!1m1!1s0x876a34d39e79d577:0x70b2ba6c566cdbf7!2m2!1d-105.7851049!2d39.9176313!3e0`
     },
     slide: 'down',
@@ -68,7 +68,7 @@ const restaurants: IImageWithDialogProps[] = [
       ]
     },
     directions: {
-      mobile: `39.9177558,-105.8200447`,
+      mobile: `Sushi%20Nama%2047%20Cooper%20Creek%20Way%20#221%20Winter%20Park%20CO%2080482`,
       web: `/Sushi+Nama,+Cooper+Creek+Way,+Winter+Park,+CO/@39.9177558,-105.8200447,13z/data=!3m1!5s0x876a34d39db2f50d:0x39c5e28dca130294!4m9!4m8!1m0!1m5!1m1!1s0x876a358d27167ba7:0xcce92afdeca0ef8a!2m2!1d-105.7850252!2d39.9176952!3e0`
     },
     slide: 'left',
@@ -83,7 +83,7 @@ const restaurants: IImageWithDialogProps[] = [
              an assortment of baked goods and amazing breakfast burritos.`
     },
     directions: {
-      mobile: `40.0851164,-105.9441725,`,
+      mobile: `Lion%20Head%20Coffee%2050%20Vasquez%20Rd%20Winter%20Park%20CO%2080468`,
       web: `/Lion+Head+Coffee,+East+Agate+Avenue,+Granby,+CO/@40.0851164,-105.9441725,16z/data=!3m1!5s0x876a34d39db2f50d:0x39c5e28dca130294!4m9!4m8!1m0!1m5!1m1!1s0x876a2f3407591e35:0xc2c37a89c22a3dc4!2m2!1d-105.9406529!2d40.0854582!3e0`
     },
     slide: 'right',
@@ -106,7 +106,7 @@ const restaurants: IImageWithDialogProps[] = [
       ]
     },
     directions: {
-      mobile: `39.9176726,-105.8207825`,
+      mobile: `Casa%20Mexico%2047%20Cooper%20Creek%20Way%20Winter%20Park%20CO`,
       web: `/Casa+Mexico,+Cooper+Creek+Way,+Winter+Park,+CO/@39.9176726,-105.8207825,13z/data=!3m2!4b1!5s0x876a34d39db2f50d:0x39c5e28dca130294!4m9!4m8!1m0!1m5!1m1!1s0x876a34d3976f8d59:0xfaf53abcfb678d30!2m2!1d-105.785763!2d39.917612!3e0`
     },
     slide: 'up',
@@ -128,7 +128,7 @@ const restaurants: IImageWithDialogProps[] = [
       ]
     },
     directions: {
-      mobile: `39.9177197,-105.8205645`,
+      mobile: `New%20Hong%20Kong%20225%20Cooper%20Creek%20Way%20Winter%20Park%20CO`,
       web: `/New+Hong+Kong,+225,+Cooper+Creek+Way,+Winter+Park,+CO/@39.9177197,-105.8205645,13z/data=!3m1!5s0x876a34d39db2f50d:0x39c5e28dca130294!4m9!4m8!1m0!1m5!1m1!1s0x876a34d39a0c747d:0x12aae8641273e15b!2m2!1d-105.785545!2d39.9176591!3e0`
     },
     slide: 'down',
@@ -143,7 +143,7 @@ const restaurants: IImageWithDialogProps[] = [
              end of Cooper Creek Square.`
     },
     directions: {
-      mobile: `39.9177247,-105.8209981`,
+      mobile: `Paellas%20Restaurant%20and%20bakery%2093%20Cooper%20Creek%20Way%20Winter%20Park%20CO%2080482`,
       web: `/Paellas+Restaurant+and+bakery,+Cooper+Creek+Way,+Winter+Park,+CO/@39.9177247,-105.8209981,13z/data=!3m2!4b1!5s0x876a34d39db2f50d:0x39c5e28dca130294!4m9!4m8!1m0!1m5!1m1!1s0x876a355815d11c95:0xe0d17bd2e93e45b1!2m2!1d-105.7859786!2d39.9176641!3e0`
     },
     slide: 'left',
@@ -159,7 +159,7 @@ const restaurants: IImageWithDialogProps[] = [
              Dine In, Patio Seating, Carry Out & Catering available.`
     },
     directions: {
-      mobile: `39.8052977,-105.695515`,
+      mobile: `Ciao%20Monte%20Food%20%26%20Wine%2037%20Cooper%20Creek%20Way%20#315%20Winter%20Park%20CO%2080482`,
       web: `/Ciao+Monte+Food+%26+Wine,+37+Cooper+Creek+Way+%23315,+Winter+Park,+CO+80482/@39.8052977,-105.695515,9.96z/data=!4m9!4m8!1m0!1m5!1m1!1s0x876a35221a77d85b:0x1331ac888c5516d0!2m2!1d-105.784661!2d39.9176919!3e0`
     },
     slide: 'right',
