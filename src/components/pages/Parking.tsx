@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     overflow: 'hidden'
   },
   image: {
-    height: '50%',
+    width: '90%',
     padding: theme.spacing(6)
   },
   resetContainer: {

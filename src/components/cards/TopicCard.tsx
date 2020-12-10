@@ -25,9 +25,10 @@ function mapsSelector({ mobile, web }: { web: string; mobile: string }) {
     navigator.platform.indexOf('iPad') !== -1 ||
     navigator.platform.indexOf('iPod') !== -1
   ) {
-    window.open(`http://maps.apple.com/?saddr=Current%20Location&daddr=${mobile}`);
+    window.open(`
+    http://maps.apple.com/?saddr=Current%20Location&daddr=${mobile}`);
   } else {
-  window.open(`https://maps.google.com/maps/dir/${web}`);
+    window.open(`https://maps.google.com/maps/dir/${web}`);
   }
 }
 

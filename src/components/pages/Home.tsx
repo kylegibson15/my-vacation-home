@@ -20,7 +20,10 @@ function Home() {
     >
       <WiFiCard />
       <MessageWithPicture
-        divider={{ position: TPosition.Bottom, text: 'Enjoy!' }}
+        divider={{
+          position: TPosition.Bottom,
+          text: 'Enjoy!'
+        }}
         messages={introMessages}
         picture={moose}
       />

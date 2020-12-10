@@ -2,7 +2,8 @@ import React from 'react';
 import { Menu } from '@material-ui/core';
 import {
   AssignmentTurnedInOutlined,
-  ContactPhone,
+  // ContactPhone,
+  Delete,
   Fireplace,
   Info,
   Kitchen,
@@ -34,9 +35,9 @@ const items = [
     title: 'Parking'
   },
   {
-    icon: ContactPhone,
-    path: '/my-vacation-home/contact',
-    title: 'Contact Us'
+    icon: Delete,
+    path: '/my-vacation-home/trash',
+    title: 'Trash & Recycling'
   },
   {
     icon: Info,

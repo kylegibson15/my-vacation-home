@@ -6,3 +6,4 @@ export { default as Contact } from './Contact';
 export { GeneralInfo } from './GeneralInfo';
 export { default as Kitchen } from './Kitchen';
 export { Entertainment } from './Entertainment';
+export { TrashAndRecycling } from './TrashAndRecycling';

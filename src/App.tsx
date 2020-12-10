@@ -10,7 +10,8 @@ import {
   Fireplace,
   GeneralInfo,
   Kitchen,
-  Parking
+  Parking,
+  TrashAndRecycling
 } from './components/pages';
 import { NavigationBar } from './components';
 
@@ -30,6 +31,7 @@ function App() {
           <Route component={Contact} path={`${BASE_ROUTE}/contact`} />
           <Route component={GeneralInfo} path={`${BASE_ROUTE}/general`} />
           <Route component={Kitchen} path={`${BASE_ROUTE}/kitchen`} />
+          <Route component={TrashAndRecycling} path={`${BASE_ROUTE}/trash`} />
           <Route
             component={Entertainment}
             path={`${BASE_ROUTE}/entertainment`}

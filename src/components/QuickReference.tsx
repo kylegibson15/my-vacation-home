@@ -2,7 +2,8 @@ import React from 'react';
 import { Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 import {
   AssignmentTurnedInOutlined,
-  ContactPhone,
+  // ContactPhone,
+  Delete,
   Fireplace,
   SportsEsports,
   Info,
@@ -88,7 +89,7 @@ function QuickReference() {
           <LocalParking className={classes.icon} />
           <Typography>Parking</Typography>
         </Grid>
-        <Grid
+        {/* <Grid
           alignItems="center"
           className={classes.item}
           component={Link}
@@ -99,7 +100,7 @@ function QuickReference() {
         >
           <ContactPhone className={classes.icon} />
           <Typography>Contact Us</Typography>
-        </Grid>
+        </Grid> */}
         <Grid
           alignItems="center"
           className={classes.item}
@@ -135,6 +136,18 @@ function QuickReference() {
         >
           <SportsEsports className={classes.icon} />
           <Typography>Entertainment</Typography>
+        </Grid>
+        <Grid
+          alignItems="center"
+          className={classes.item}
+          component={Link}
+          container
+          item
+          justify="center"
+          to="/my-vacation-home/trash"
+        >
+          <Delete className={classes.icon} />
+          <Typography>Trash & Recycling</Typography>
         </Grid>
       </Grid>
     </>
