@@ -17,6 +17,7 @@ function Home() {
       exit="out"
       variants={pageVariants}
       transition={pageTransition}
+      style={{ maxWidth: '500px' }}
     >
       <WiFiCard />
       <MessageWithPicture

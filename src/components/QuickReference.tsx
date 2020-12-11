@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     boxShadow: '0px 0px 1px black',
     color: 'white',
     height: '25vw',
+    maxHeight: '150px',
     backgroundImage:
       'linear-gradient(136deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.2) 100%)',
     borderRadius: theme.spacing(1),
@@ -34,6 +35,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     boxShadow: '0px 0px 1px black',
     color: 'white',
     width: '40vw',
+    maxWidth: '150px',
+    maxHeight: '150px',
     height: '25vw',
     backgroundImage:
       'linear-gradient(136deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.2) 100%)',
@@ -50,7 +53,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 function QuickReference() {
   const classes = useStyles();
   return (
-    <>
+    <Grid container justify="center">
       <DividerWithText value="Quick Reference" />
       <Grid container item justify="space-around" style={{ marginBottom: 15 }}>
         <Grid
@@ -150,7 +153,7 @@ function QuickReference() {
           <Typography>Trash & Recycling</Typography>
         </Grid>
       </Grid>
-    </>
+    </Grid>
   );
 }
 

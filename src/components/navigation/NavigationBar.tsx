@@ -25,7 +25,8 @@ const locationTitles: Record<string, string> = {
   '/my-vacation-home/contact': 'Contact Us',
   '/my-vacation-home/general': 'General Info',
   '/my-vacation-home/kitchen': 'Kitchen',
-  '/my-vacation-home/entertainment': 'Entertainment'
+  '/my-vacation-home/entertainment': 'Entertainment',
+  '/my-vacation-home/trash': 'Trash'
 };
 
 interface Props {
@@ -52,12 +53,7 @@ function NavigationBar({ children, ...props }: Props) {
 
   return (
     <>
-      <AppBar
-        style={{
-          background: '#39566e'
-          // background: 'linear-gradient(to right, #004e92, #000428)'
-        }}
-      >
+      <AppBar style={{ background: '#39566e' }}>
         <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
           <IconButton
             edge="start"

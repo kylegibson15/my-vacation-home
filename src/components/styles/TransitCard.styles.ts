@@ -9,6 +9,7 @@ const useTransitCardStyles = makeStyles(() => ({
     margin: 12,
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
     color: 'white'
+    // maxWidth: '400px'
   },
   fabAndroid: {
     backgroundImage:
