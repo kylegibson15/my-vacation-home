@@ -1,13 +1,26 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 
-import { useTopicCardStyles } from '../styles';
+const useStyles = makeStyles(() => ({
+  topicCard: {
+    backgroundColor: 'transparent',
+    padding: 0,
+    margin: 0
+  },
+  pos: {
+    marginBottom: 12,
+    paddingLeft: 6,
+    color: 'white',
+    width: '50%',
+    borderBottom: '1px solid white'
+  }
+}));
 
-export default function OutlinedCard() {
-  const classes = useTopicCardStyles();
+export default function Credentials() {
+  const classes = useStyles();
 
   return (
-    <Grid className={classes.topicCard}>
+    <>
       <Typography className={classes.pos} variant="h3" component="h1">
         WIFI
       </Typography>
@@ -25,6 +38,6 @@ export default function OutlinedCard() {
         </Typography>
         <Typography style={{ color: 'white' }}>winterpark</Typography>
       </Grid>
-    </Grid>
+    </>
   );
 }
