@@ -21,22 +21,20 @@ export default function Credentials() {
 
   return (
     <>
-      <Typography className={classes.pos} variant="h3" component="h1">
+      <Typography className={classes.pos} variant="h4" component="h1">
         WIFI
       </Typography>
       <Grid container item direction="row" justify="space-between">
         <Typography style={{ color: 'white' }}>
-          <b>Network:</b>
+          <b>SSID:</b>
         </Typography>
-        <Typography style={{ color: 'white' }}>
-          CrestViewPlaceCondominium
-        </Typography>
+        <Typography style={{ color: 'white' }}>CrestView302</Typography>
       </Grid>
       <Grid container item direction="row" justify="space-between">
         <Typography style={{ color: 'white' }}>
           <b>Password:</b>
         </Typography>
-        <Typography style={{ color: 'white' }}>winterpark</Typography>
+        <Typography style={{ color: 'white' }}>4svrnw2L</Typography>
       </Grid>
     </>
   );

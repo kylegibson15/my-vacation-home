@@ -31,12 +31,15 @@ function CodeInput({ id, label }: ICodeInput) {
     <TextField
       classes={{ root: styles.root }}
       id={id}
-      InputProps={{ classes: { input: styles.input } }}
+      InputProps={{
+        classes: { input: styles.input }
+      }}
       InputLabelProps={{
         classes: { root: styles.inputLabel, focused: styles.focused }
       }}
       label={label}
       rows={2}
+      type="number"
       variant="outlined"
     />
   );

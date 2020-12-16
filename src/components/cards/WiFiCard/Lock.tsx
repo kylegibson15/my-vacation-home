@@ -14,12 +14,12 @@ interface ILock {
 }
 
 const inputs = [
-  { id: 'input-1', label: 'W' },
-  { id: 'input-2', label: 'I' },
-  { id: 'input-3', label: 'F' },
-  { id: 'input-4', label: 'I' },
-  { id: 'input-5', label: '.' },
-  { id: 'input-6', label: '.' }
+  { id: 'input-0', label: 'W' },
+  { id: 'input-1', label: 'I' },
+  { id: 'input-2', label: 'F' },
+  { id: 'input-3', label: 'I' },
+  { id: 'input-4', label: '.' },
+  { id: 'input-5', label: '.' }
 ];
 
 function Lock({ handleOnChange }: ILock) {
