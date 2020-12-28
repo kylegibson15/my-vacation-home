@@ -5,17 +5,10 @@ import Credentials from './Credentials';
 import Lock from './Lock';
 
 const useStyles = makeStyles((theme: Theme) => ({
-  topicCard: {
+  wrapper: {
     backgroundColor: 'transparent',
     padding: 0,
     margin: theme.spacing(2, 0)
-  },
-  pos: {
-    marginBottom: 12,
-    paddingLeft: 6,
-    color: 'white',
-    width: '50%',
-    borderBottom: '1px solid white'
   }
 }));
 
@@ -45,7 +38,7 @@ export default function OutlinedCard() {
   const correctPassword = password.join('') === process.env.REACT_APP_CODE;
 
   return (
-    <Grid className={classes.topicCard}>
+    <Grid className={classes.wrapper}>
       {correctPassword ? (
         <Credentials />
       ) : (

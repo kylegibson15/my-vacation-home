@@ -6,7 +6,7 @@ const useImageWithDialogStyles = makeStyles((theme: Theme) =>
       alignSelf: 'flex-end'
     },
     content: {
-      maxWidth: '90vw',
+      maxWidth: '500px',
       backgroundColor: theme.palette.background.paper,
       boxShadow:
         '0px 3px 5px -1px rgba(0,0,0,0.8), 0px 6px 10px 0px rgba(0,0,0,0.74), 0px 1px 18px 0px rgba(0,0,0,0.72)',

@@ -100,7 +100,9 @@ export default function TopicCard({
           title={title}
         />
       ) : null}
-      <CardContent style={{ maxHeight: '45vh', overflowY: 'scroll' }}>
+      <CardContent
+        style={{ maxHeight: '45vh', overflowY: 'scroll', maxWidth: '500px' }}
+      >
         {!expanded ? (
           <Typography variant="body2" color="textSecondary" component="p">
             {messages.main}
