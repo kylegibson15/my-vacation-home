@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Grid, makeStyles, Theme } from '@material-ui/core';
+import { actionTypes, selectors } from '../../../features/password';
 
 import Credentials from './Credentials';
 import Lock from './Lock';
@@ -21,6 +23,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function OutlinedCard() {
   const classes = useStyles();
+  const isPasswordCorrect = useSelector(selectors.getIsPasswordCorrect);
+  const dispatch = useDispatch();
   const [password, setPassword] = useState([1, 1, 1, 1, 1, 1]);
 
   function focusNextInput(idInput: string, idVal: string) {
@@ -42,11 +46,16 @@ export default function OutlinedCard() {
     updatePassword(idVal, value);
   }
 
-  const correctPassword = password.join('') === process.env.REACT_APP_CODE;
+  useEffect(() => {
+    if (password.join('') === process.env.REACT_APP_CODE) {
+      console.log({ actionTypes });
+      dispatch(actionTypes.SET_CORRECT_PASSWORD);
+    }
+  }, [password]);
 
   return (
     <Grid className={classes.topicCard}>
-      {correctPassword ? (
+      {isPasswordCorrect ? (
         <Credentials />
       ) : (
         <Lock handleOnChange={handleOnChange} />

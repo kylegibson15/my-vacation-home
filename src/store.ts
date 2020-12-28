@@ -1,10 +1,10 @@
 import { combineReducers, createStore } from 'redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
-import { CounterReducer } from './features/counter';
+import { PasswordReducer } from './features/password';
 
 /* Create root reducer, containing all features of the application */
 const rootReducer = combineReducers({
-  count: CounterReducer
+  password: PasswordReducer
 });
 
 const store = createStore(

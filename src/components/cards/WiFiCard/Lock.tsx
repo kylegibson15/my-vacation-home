@@ -31,7 +31,7 @@ function Lock({ handleOnChange }: ILock) {
       </FormHelperText>
       <FormControl className={classes.form} onChange={handleOnChange}>
         {inputs.map(({ id, label }) => (
-          <CodeInput id={id} label={label} />
+          <CodeInput key={id} id={id} label={label} />
         ))}
       </FormControl>
     </>
