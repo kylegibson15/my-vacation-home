@@ -53,14 +53,9 @@ function Fireplace() {
           </Typography>
 
           <Typography variant="body2">
-            The thermostat that controls the fireplace is located on the wall in
-            the second shelf from the bottom. To turn on the fireplace, move the
-            switch to the left to the “Heat” setting. If the fireplace does not
-            turn on, then increase the temperature until it turns on. If you
-            want the fireplace to turn off, move the switch to the center to the
-            “off”setting. **since the thermostat is difficult to see, there is
-            flashlight in the top drawer in the kitchen (next to the
-            refrigerator).**
+          To enjoy the cozy fireplace, simply find the thermostat inside the shelving unit to the left of the TV. Adjust the temperature to your preference. The fireplace will automatically turn on and off to maintain the desired temperature.
+
+          Please remember to turn down the thermostat to 60 degrees before you leave to conserve energy.
           </Typography>
 
           <Grid container item justify="center">
