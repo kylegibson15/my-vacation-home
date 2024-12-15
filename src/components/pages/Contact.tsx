@@ -15,9 +15,7 @@ const StyledContainer = styled(Container)(({ theme }) => ({
 
 function Contact() {
   return (
-    <div
-      style={{ height: '100%' }}
-    >
+    <div style={{ height: '100%' }}>
       <StyledContainer>
         <Typography variant="h4">
           Contact

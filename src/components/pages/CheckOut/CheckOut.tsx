@@ -65,9 +65,7 @@ function CheckOut() {
   };
 
   return (
-    <div
-      style={{ height: '100%' }}
-    >
+    <div style={{ height: '100%' }}>
       <Container maxWidth="md">
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((label, index) => (

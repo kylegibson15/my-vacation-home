@@ -20,9 +20,8 @@ const StyledDividerBorder = styled(Box)({
 
 const StyledDividerText = styled(Typography)(({ theme }) => ({
   fontWeight: 500,
-  fontSize: '1.25rem', // Adjust font size as needed
-  color: 'lightgray',
-  padding: theme.spacing(0.5)
+  fontSize: '1rem', // Adjust font size as needed
+  padding: theme.spacing(2)
 }));
 
 function DividerWithText({ value }: IDividerWithTextProps) {
