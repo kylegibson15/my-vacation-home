@@ -1,14 +1,19 @@
 import React from 'react';
+import { IconButton } from '@mui/material';
+import { AssignmentTurnedInOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import { IconButton } from '@material-ui/core';
-import { AssignmentTurnedInOutlined } from '@material-ui/icons';
+import { styled } from '@mui/material/styles';
 
-import { useNavigationBarStyles } from '../styles';
+const SectionDesktop = () => {
+  const StyledSectionDesktop = styled('div')(({ theme }) => ({
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'flex'
+    }
+  }));
 
-function SectionDesktop() {
-  const classes = useNavigationBarStyles();
   return (
-    <div className={classes.sectionDesktop}>
+    <StyledSectionDesktop>
       <IconButton
         aria-label="account of current user"
         aria-controls="primary-search-account-menu"
@@ -19,8 +24,8 @@ function SectionDesktop() {
       >
         <AssignmentTurnedInOutlined />
       </IconButton>
-    </div>
+    </StyledSectionDesktop>
   );
-}
+};
 
 export default SectionDesktop;

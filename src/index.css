@@ -20,7 +20,6 @@ code {
 
 #root {
   height: 100%;
-  background-image: linear-gradient(to bottom, #374364, #364a68, #39566e, #3c5c70, #2e6576, #1e6e78, #167675, #27805f, #59863b, #8f8417, #ca761b);
   /* background: linear-gradient(to bottom, #004e92, #000428); */
   overflow-y: scroll;
 }

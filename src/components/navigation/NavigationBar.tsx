@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
 import {
   AppBar,
-  Container,
-  Fab,
-  IconButton,
   Toolbar,
-  Typography
-} from '@material-ui/core';
-import { Home, KeyboardArrowUp } from '@material-ui/icons';
+  Typography,
+  IconButton,
+  Container
+} from '@mui/material';
+import { Home } from '@mui/icons-material';
 import { Link, useLocation } from 'react-router-dom';
 
-import { useNavigationBarStyles } from '../styles';
-
-import ScrollTopButton from './ScrollTopButton';
+import MobileMenu from './MobileMenu';
 import SectionDesktop from './SectionDesktop';
 import SectionMobile from './SectionMobile';
-import MobileMenu from './MobileMenu';
 
 const locationTitles: Record<string, string> = {
   '/my-vacation-home': 'Home',
@@ -29,18 +25,10 @@ const locationTitles: Record<string, string> = {
   '/my-vacation-home/trash': 'Trash'
 };
 
-interface Props {
-  children: React.ReactElement;
-}
-
-function NavigationBar({ children, ...props }: Props) {
-  const classes = useNavigationBarStyles();
+function NavigationBar({ children }: React.PropsWithChildren) {
   const { pathname } = useLocation();
-  const [
-    mobileMoreAnchorEl,
-    setMobileMoreAnchorEl
-  ] = useState<null | HTMLElement>(null);
-
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
+    useState<null | HTMLElement>(null);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -53,11 +41,10 @@ function NavigationBar({ children, ...props }: Props) {
 
   return (
     <>
-      <AppBar style={{ background: '#39566e' }}>
-        <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <AppBar>
+        <Toolbar style={{ justifyContent: 'space-between' }}>
           <IconButton
             edge="start"
-            className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
             component={Link}
@@ -77,15 +64,12 @@ function NavigationBar({ children, ...props }: Props) {
         isOpen={isMobileMenuOpen}
         onCloseMenu={handleMobileMenuClose}
       />
-      <Toolbar id="back-to-top-anchor" />
-      <Container className={classes.barContainer} maxWidth="md">
+      <Container
+        maxWidth="md"
+        style={{ paddingTop: 100, paddingBottom: 100 }}
+      >
         {children}
       </Container>
-      <ScrollTopButton {...props}>
-        <Fab color="secondary" size="small" aria-label="scroll back to top">
-          <KeyboardArrowUp />
-        </Fab>
-      </ScrollTopButton>
     </>
   );
 }

@@ -1,13 +1,9 @@
 module.exports = {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
     "plugin:prettier/recommended",
-    "airbnb-typescript",
-    "prettier",
-    "prettier/@typescript-eslint",
-    "prettier/react"
   ],
   "parserOptions": {
     "project": "./tsconfig.json",
@@ -17,15 +13,11 @@ module.exports = {
     "jest": true
   },
   "rules": {
-    // Make prettier code formatting suggestions more verbose.
     "prettier/prettier": ["warn"],
     "react/jsx-fragments": 1,
-    "react/jsx-props-no-spreading": [0],
-    // Disable prefer default export
+    "react/jsx-props-no-spreading": "warn", // Consider enabling this for better code maintainability
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",
-    "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["warn"],
-    semi: [1, "always"]
   }
-}
+};

@@ -1,15 +1,14 @@
 import React from 'react';
-import { Menu } from '@material-ui/core';
+import { Menu } from '@mui/material';
 import {
   AssignmentTurnedInOutlined,
-  // ContactPhone,
   Delete,
   Fireplace,
   Info,
   Kitchen,
   LocalParking,
   SportsEsports
-} from '@material-ui/icons';
+} from '@mui/icons-material';
 
 import MobileMenuItem from './MobileMenuItem';
 
@@ -61,24 +60,20 @@ function MobileMenu({ anchorEl, isOpen, onCloseMenu }: IProps) {
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id="primary-search-account-menu-mobile"
       keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isOpen}
       onClose={onCloseMenu}
-      style={{ padding: 6 }}
+      sx={{ padding: 1 }} // Using sx prop for padding
     >
-      {items.map(({ icon, path, title }) => {
-        return (
-          <MobileMenuItem
-            key={path}
-            Icon={icon}
-            onClose={onCloseMenu}
-            path={path}
-            title={title}
-          />
-        );
-      })}
+      {items.map(({ icon, path, title }) => (
+        <MobileMenuItem
+          Icon={icon}
+          key={path}
+          onClose={onCloseMenu}
+          path={path}
+          title={title}
+        />
+      ))}
     </Menu>
   );
 }

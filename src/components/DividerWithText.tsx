@@ -1,22 +1,37 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
-
-import { useDividerWithTextStyles } from './styles';
+import { Box, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
 interface IDividerWithTextProps {
   value: string;
 }
 
+const StyledDividerContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  marginTop: theme.spacing(2),
+  width: '90%'
+}));
+
+const StyledDividerBorder = styled(Box)({
+  borderBottom: '2px solid lightgray',
+  flex: 1
+});
+
+const StyledDividerText = styled(Typography)(({ theme }) => ({
+  fontWeight: 500,
+  fontSize: '1.25rem', // Adjust font size as needed
+  color: 'lightgray',
+  padding: theme.spacing(0.5)
+}));
+
 function DividerWithText({ value }: IDividerWithTextProps) {
-  const classes = useDividerWithTextStyles();
   return (
-    <Grid item>
-      <div className={classes.dividerContainer}>
-        <div className={classes.dividerBorder} />
-        <span className={classes.dividerText}>{value}</span>
-        <div className={classes.dividerBorder} />
-      </div>
-    </Grid>
+    <StyledDividerContainer>
+      <StyledDividerBorder />
+      <StyledDividerText>{value}</StyledDividerText>
+      <StyledDividerBorder />
+    </StyledDividerContainer>
   );
 }
 

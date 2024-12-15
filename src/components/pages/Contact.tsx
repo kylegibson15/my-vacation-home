@@ -1,67 +1,43 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import {
   Container,
-  Grid,
-  makeStyles,
-  Paper,
-  Theme,
-  Typography
-} from '@material-ui/core';
-
-import { pageTransition, pageVariants } from '../../constants';
+  Grid2 as Grid,
+  Typography,
+  Box,
+  styled
+} from '@mui/material';
 import { buffalo } from '../../images';
 
-const useStyles = makeStyles((theme: Theme) => ({
-  contact: {
-    height: '100%',
-    width: '100vw',
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(2, 0),
-    margin: 0,
-    overflow: 'hidden'
-  },
-  image: {
-    height: '50%',
-    padding: theme.spacing(6)
-  },
-  resetContainer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    flexDirection: 'column',
-    height: '100%',
-    padding: theme.spacing(3)
-  }
+const StyledContainer = styled(Container)(({ theme }) => ({
+  backgroundColor: 'transparent',
+  overflow: 'hidden',
 }));
 
 function Contact() {
-  const classes = useStyles();
   return (
-    <motion.div
-      initial="initial"
-      animate="in"
-      exit="out"
+    <div
       style={{ height: '100%' }}
-      transition={pageTransition}
-      variants={pageVariants}
     >
-      <Container className={classes.contact}>
-        <Paper square elevation={0} className={classes.resetContainer}>
-          <Typography variant="h4" color="textPrimary">
-            Contact
-          </Typography>
+      <StyledContainer>
+        <Typography variant="h4">
+          Contact
+        </Typography>
 
-          <Typography variant="body2">
-            Message or call Vacasa at. They will be able to help you.
-          </Typography>
+        <Typography variant="body2" color="textPrimary">
+          Message or call Vacasa at. They will be able to help you.
+        </Typography>
 
-          <Grid container item justify="center">
-            <img alt="wood-ball" className={classes.image} src={buffalo} />
+        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+          <Grid container>
+            <img
+              alt="wood-ball"
+              src={buffalo}
+              style={{ width: 'auto', height: '200px' }}
+            />
           </Grid>
-        </Paper>
-      </Container>
-    </motion.div>
+        </Box>
+      </StyledContainer>
+    </div>
   );
 }
 

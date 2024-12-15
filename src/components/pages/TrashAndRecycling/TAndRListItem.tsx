@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListItem, ListItemText } from '@material-ui/core';
+import { List, ListItem, ListItemText } from '@mui/material';
 
 interface IProps {
   description: string[];
@@ -7,11 +7,15 @@ interface IProps {
 
 function TrashAndRecyclingListItem({ description }: IProps) {
   return (
-    <ListItem alignItems="flex-start" style={{ flexDirection: 'column' }}>
+    <List dense>
       {description.map((msg) => (
-        <ListItemText secondary={msg} />
+        <ListItem key={msg}>
+          <ListItemText
+            primary={msg}
+          />
+        </ListItem>
       ))}
-    </ListItem>
+    </List>
   );
 }
 

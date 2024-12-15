@@ -1,6 +1,6 @@
 import React, { ComponentType } from 'react';
+import { MenuItem, IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { MenuItem, IconButton } from '@material-ui/core';
 
 interface IProps {
   Icon: ComponentType;
@@ -11,11 +11,11 @@ interface IProps {
 
 function MobileMenuItem({ Icon, onClose, path, title }: IProps) {
   return (
-    <MenuItem component={Link} dense onClick={onClose} to={path}>
-      <IconButton color="inherit">
+    <MenuItem onClick={onClose} component={Link} to={path}>
+      <IconButton size="small">
         <Icon />
       </IconButton>
-      <p>{title}</p>
+      {title}
     </MenuItem>
   );
 }

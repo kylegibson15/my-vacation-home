@@ -1,23 +1,17 @@
-import React, { ComponentType } from 'react';
-import {
-  Avatar,
-  ListItem,
-  ListItemAvatar,
-  ListItemText
-} from '@material-ui/core';
+import React from 'react';
+import { ListItem, ListItemAvatar, ListItemText, Avatar } from '@mui/material';
 
-interface IProps {
+interface IProps extends React.PropsWithChildren {
   description: string;
-  AvatarIcon: ComponentType;
   mainText: string;
 }
 
-function EntertainmentListItem({ description, AvatarIcon, mainText }: IProps) {
+function EntertainmentListItem({ description, children, mainText }: IProps) {
   return (
-    <ListItem alignItems="flex-start">
+    <ListItem >
       <ListItemAvatar>
         <Avatar>
-          <AvatarIcon />
+          {children}
         </Avatar>
       </ListItemAvatar>
       <ListItemText primary={mainText} secondary={description} />

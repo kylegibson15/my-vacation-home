@@ -7,23 +7,29 @@ import {
   CardContent,
   CardActions,
   Fab,
-  Grid,
+  Grid2 as Grid,
   Typography
-} from '@material-ui/core';
-import { Apple, AndroidOutlined, DirectionsBus } from '@material-ui/icons';
+} from '@mui/material';
+import { Apple, Android, DirectionsBus } from '@mui/icons-material';
+import { styled } from '@mui/material/styles';
 
 import theLift from '../../images/TheLiftWinterPark.jpg';
 
-import { useTransitCardStyles } from '../styles';
+const TransitCardContainer = styled(Card)({
+  margin: 12,
+  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+  maxWidth: '400px'
+});
 
 export default function TransitCard() {
-  const classes = useTransitCardStyles();
-
   return (
-    <Card className={classes.container} elevation={6}>
+    <TransitCardContainer elevation={6}>
       <CardHeader
         avatar={
-          <Avatar className={classes.avatar} variant="rounded">
+          <Avatar
+            sx={{ backgroundColor: 'rgb(244, 67, 54)' }}
+            variant="rounded"
+          >
             <DirectionsBus />
           </Avatar>
         }
@@ -31,7 +37,7 @@ export default function TransitCard() {
         subheader={new Date().toLocaleDateString()}
       />
       <CardMedia
-        className={classes.media}
+        className="media"
         image={theLift}
         title="Local Transit to the Ski Lifts"
       />
@@ -42,24 +48,31 @@ export default function TransitCard() {
           just outside the bedroom door down the hill.
         </Typography>
       </CardContent>
-      <CardActions className={classes.cardActions} disableSpacing>
-        <Grid>
-          <Typography variant="subtitle2">Download</Typography>
-          <Typography variant="subtitle2">the App</Typography>
+      <CardActions
+        disableSpacing
+        sx={{ display: 'flex', justifyContent: 'flex-end' }}
+      >
+        <Grid container direction="column">
+          <Grid>
+            <Typography variant="subtitle2">Download</Typography>
+            <Typography variant="subtitle2">the App</Typography>
+          </Grid>
         </Grid>
         <Fab
-          className={classes.fabApple}
-          href="https://apps.apple.com/us/app/the-lift-rider/id1420161965?ls=1"
+          className="fabApple"
+          href="https://apps.apple.com/us/app/the-lift-rider/id1673600268"
+          sx={{ bgcolor: 'rgb(55, 67, 100)', margin: '5px', color: 'white' }}
         >
-          <Apple style={{ color: 'white' }} />
+          <Apple />
         </Fab>
         <Fab
-          className={classes.fabAndroid}
-          href="https://play.google.com/store/apps/details?hl=en_US&id=com.ridesystems.TheLift"
+          className="fabAndroid"
+          href="https://play.google.com/store/apps/details?id=com.theliftwp.rider"
+          sx={{ bgcolor: 'primary.main', margin: '5px', color: 'white' }} // Uses theme color
         >
-          <AndroidOutlined style={{ color: 'white' }} />
+          <Android />
         </Fab>
       </CardActions>
-    </Card>
+    </TransitCardContainer>
   );
 }

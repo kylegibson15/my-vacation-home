@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
-import { Grid, Paper, Slide } from '@material-ui/core';
-
-import { IImageWithDialogProps } from '../interfaces';
+import { Box, Paper, Slide, SlideProps } from '@mui/material';
 
 import { TopicCard } from './cards';
-import { useImageWithDialogStyles } from './styles';
+import { IMessages } from '../interfaces';
+
+interface IImageWithDialogProps {
+  cuisine: string[];
+  messages: IMessages;
+  directions: { web: string; mobile: string };
+  slide: SlideProps['direction'];
+  src: string;
+  title?: string;
+}
 
 function ImageWithDialog({
   cuisine,
@@ -14,7 +21,6 @@ function ImageWithDialog({
   src,
   title
 }: IImageWithDialogProps) {
-  const classes = useImageWithDialogStyles();
   const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
@@ -26,25 +32,46 @@ function ImageWithDialog({
       <img
         alt={src}
         aria-hidden
-        className={classes.image}
-        onClick={handleChange}
         src={src}
+        onClick={handleChange}
+        style={{
+          height: '10vh',
+          width: 'auto',
+          border: '1px solid transparent'
+        }}
       />
       <Slide direction={slide} in={checked} mountOnEnter unmountOnExit>
-        <Paper elevation={4} className={classes.paper}>
-          <Grid className={classes.content} container spacing={4}>
-            <Grid className={classes.mainContent} item>
-              <TopicCard
-                cuisine={cuisine}
-                directions={directions}
-                messages={messages}
-                expandable
-                handleClose={handleChange}
-                img={src}
-                title={title}
-              />
-            </Grid>
-          </Grid>
+        <Paper
+          sx={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)' // Semi-transparent background
+          }}
+        >
+          <Box
+            sx={{
+              backgroundColor: 'white',
+              padding: 4,
+              borderRadius: 2,
+              maxWidth: '80%' // Adjust max width as needed
+            }}
+          >
+            <TopicCard
+              cuisine={cuisine}
+              directions={directions}
+              messages={messages}
+              expandable
+              handleClose={handleChange}
+              img={src}
+              title={title}
+            />
+          </Box>
         </Paper>
       </Slide>
     </>

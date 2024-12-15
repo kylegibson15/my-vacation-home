@@ -1,29 +1,31 @@
 import React from 'react';
-import { IconButton } from '@material-ui/core';
-import { MoreVert } from '@material-ui/icons';
-
-import { useNavigationBarStyles } from '../styles';
+import { IconButton } from '@mui/material';
+import { MoreVert } from '@mui/icons-material';
+import { styled } from '@mui/material/styles';
 
 interface IProps {
   onOpen: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
 function SectionMobile({ onOpen }: IProps) {
-  const classes = useNavigationBarStyles();
+  const StyledSectionMobile = styled('div')(({ theme }) => ({
+    display: 'flex',
+    [theme.breakpoints.up('md')]: {
+      display: 'none'
+    }
+  }));
 
   return (
-    <div className={classes.sectionMobile}>
+    <StyledSectionMobile>
       <IconButton
         aria-label="show more"
-        aria-controls="primary-search-account-menu-mobile"
-        aria-haspopup="true"
         onClick={onOpen}
         color="inherit"
-        style={{ padding: 0 }}
+        size="large"
       >
         <MoreVert />
       </IconButton>
-    </div>
+    </StyledSectionMobile>
   );
 }
 

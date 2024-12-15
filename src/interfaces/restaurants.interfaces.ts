@@ -1,4 +1,4 @@
-import { SlideProps } from '@material-ui/core';
+import { SlideProps } from '@mui/material';
 
 export interface IMessages {
   main: string;

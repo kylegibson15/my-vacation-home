@@ -1,41 +1,17 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import {
   Button,
   Container,
-  makeStyles,
   Paper,
   Step,
   StepContent,
   StepLabel,
   Stepper,
-  Typography
-} from '@material-ui/core';
+  Typography,
+  useTheme
+} from '@mui/material';
 
-import { pageTransition, pageVariants } from '../../../constants';
-
-import StepIcon from './StepIcon';
-
-const useStyles = makeStyles((theme) => ({
-  checkout: {
-    width: '100vw',
-    height: '100%',
-    backgroundColor: theme.palette.background.paper,
-    overflowY: 'scroll'
-  },
-  button: {
-    marginTop: theme.spacing(1),
-    marginRight: theme.spacing(1)
-  },
-  actionsContainer: {
-    marginBottom: theme.spacing(2)
-  },
-  resetContainer: {
-    padding: theme.spacing(3)
-  }
-}));
-
-function getSteps() {
+const getSteps = () => {
   return [
     'Windows & Doors',
     'Trash',
@@ -45,7 +21,7 @@ function getSteps() {
     'Beds/Linens',
     'Keys'
   ];
-}
+};
 
 function getStepContent(step: number) {
   switch (step) {
@@ -72,9 +48,9 @@ function getStepContent(step: number) {
 }
 
 function CheckOut() {
-  const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const steps = getSteps();
+  const theme = useTheme();
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -89,62 +65,51 @@ function CheckOut() {
   };
 
   return (
-    <motion.div
-      initial="initial"
-      animate="in"
-      exit="out"
+    <div
       style={{ height: '100%' }}
-      transition={pageTransition}
-      variants={pageVariants}
     >
-      <Container className={classes.checkout}>
+      <Container maxWidth="md">
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((label, index) => (
             <Step key={label}>
-              <StepLabel StepIconComponent={StepIcon}>{label}</StepLabel>
+              <StepLabel>{label}</StepLabel>
               <StepContent>
                 <Typography variant="body2">{getStepContent(index)}</Typography>
-                <div className={classes.actionsContainer}>
-                  <div>
-                    <Button
-                      disabled={activeStep === 0}
-                      onClick={handleBack}
-                      className={classes.button}
-                      size="small"
-                    >
-                      Back
-                    </Button>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={handleNext}
-                      className={classes.button}
-                      size="small"
-                    >
-                      {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                    </Button>
-                  </div>
+                <div>
+                  <Button
+                    disabled={activeStep === 0}
+                    onClick={handleBack}
+                    variant="outlined"
+                    size="small"
+                    sx={{ marginRight: theme.spacing(1) }} // Use theme for spacing
+                  >
+                    Back
+                  </Button>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleNext}
+                    size="small"
+                  >
+                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                  </Button>
                 </div>
               </StepContent>
             </Step>
           ))}
         </Stepper>
         {activeStep === steps.length && (
-          <Paper square elevation={0} className={classes.resetContainer}>
+          <Paper square elevation={0} sx={{ padding: theme.spacing(3) }}>
             <Typography variant="body2">
               All steps completed - you&apos;re ready to check out
             </Typography>
-            <Button
-              onClick={handleReset}
-              className={classes.button}
-              size="small"
-            >
+            <Button onClick={handleReset} variant="outlined" size="small">
               Reset
             </Button>
           </Paper>
         )}
       </Container>
-    </motion.div>
+    </div>
   );
 }
 

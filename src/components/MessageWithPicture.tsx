@@ -1,61 +1,53 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid2 as Grid, Box, Typography } from '@mui/material';
 
-import { TPosition } from '../types';
-
-import { useMessageWithPictureStyles } from './styles';
 import DividerWithText from './DividerWithText';
 
+interface TPosition {
+  position: 'Top' | 'Bottom' | 'Both';
+  text: string;
+}
+
 interface IMessageWithPictureProps {
-  divider: { position: TPosition; text: string };
+  divider: TPosition;
   messages: string[];
   picture: string;
 }
 
-function MessageWithPictureProps({
+function MessageWithPicture({
   divider,
   messages,
   picture
 }: IMessageWithPictureProps) {
-  const classes = useMessageWithPictureStyles();
   const { position, text } = divider;
+
   return (
     <Grid
       container
-      item
-      justify="center"
-      style={{ color: 'white', maxWidth: '500px' }}
+      justifyContent="center"
+      sx={{ maxWidth: 500 }}
     >
-      {position === TPosition.Both || position === TPosition.Top ? (
+      {(position === 'Top' || position === 'Both') && (
         <DividerWithText value={text} />
-      ) : null}
+      )}
 
-      <Grid item>
-        <img
-          alt={`${picture}-message`}
-          className={classes.image}
-          src={picture}
-        />
+      <img alt={`${picture}-message`} src={picture} width={'80%'} style={{ margin: 18 }} />
+
+      <Grid>
+        {messages.map((message) => (
+          <Box key={message} sx={{ mb: 2 }}>
+            <Typography variant="body1" align="center">
+              {message}
+            </Typography>
+          </Box>
+        ))}
       </Grid>
 
-      <Grid item>
-        {messages.map((message) => {
-          return (
-            <div key={`${message.split('').splice(5)}`}>
-              <Typography align="center" variant="body1">
-                {message}
-              </Typography>
-              <br />
-            </div>
-          );
-        })}
-      </Grid>
-
-      {position === TPosition.Both || position === TPosition.Bottom ? (
+      {(position === 'Bottom' || position === 'Both') && (
         <DividerWithText value={text} />
-      ) : null}
+      )}
     </Grid>
   );
 }
 
-export default MessageWithPictureProps;
+export default MessageWithPicture;

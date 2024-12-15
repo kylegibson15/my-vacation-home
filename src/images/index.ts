@@ -17,5 +17,5 @@ export {
   moose,
   wood_ball,
   yellowstone,
-  posted_sign
+  posted_sign,
 };

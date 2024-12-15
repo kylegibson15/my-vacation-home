@@ -1,6 +1,5 @@
 import React from 'react';
-import { AnimatePresence } from 'framer-motion';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 import {
   CheckOut,
@@ -22,22 +21,23 @@ function App() {
 
   return (
     <NavigationBar>
-      <AnimatePresence>
-        <Switch location={location} key={location.pathname}>
-          <Route component={Home} exact path={BASE_ROUTE} />
-          <Route component={CheckOut} path={`${BASE_ROUTE}/check-out`} />
-          <Route component={Fireplace} path={`${BASE_ROUTE}/fireplace`} />
-          <Route component={Parking} path={`${BASE_ROUTE}/parking`} />
-          <Route component={Contact} path={`${BASE_ROUTE}/contact`} />
-          <Route component={GeneralInfo} path={`${BASE_ROUTE}/general`} />
-          <Route component={Kitchen} path={`${BASE_ROUTE}/kitchen`} />
-          <Route component={TrashAndRecycling} path={`${BASE_ROUTE}/trash`} />
-          <Route
-            component={Entertainment}
-            path={`${BASE_ROUTE}/entertainment`}
-          />
-        </Switch>
-      </AnimatePresence>
+      <Routes location={location} key={location.pathname}>
+        <Route path={BASE_ROUTE} element={<Home />} />
+        <Route path={`${BASE_ROUTE}/check-out`} element={<CheckOut />} />
+        <Route path={`${BASE_ROUTE}/fireplace`} element={<Fireplace />} />
+        <Route path={`${BASE_ROUTE}/parking`} element={<Parking />} />
+        <Route path={`${BASE_ROUTE}/contact`} element={<Contact />} />
+        <Route path={`${BASE_ROUTE}/general`} element={<GeneralInfo />} />
+        <Route path={`${BASE_ROUTE}/kitchen`} element={<Kitchen />} />
+        <Route
+          path={`${BASE_ROUTE}/trash`}
+          element={<TrashAndRecycling />}
+        />
+        <Route
+          path={`${BASE_ROUTE}/entertainment`}
+          element={<Entertainment />}
+        />
+      </Routes>
     </NavigationBar>
   );
 }
