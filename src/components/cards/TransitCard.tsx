@@ -17,7 +17,6 @@ import theLift from '../../images/TheLiftWinterPark.jpg';
 
 const TransitCardContainer = styled(Card)({
   margin: 12,
-  backgroundColor: 'rgba(255, 255, 255, 0.2)',
   maxWidth: '400px'
 });
 
@@ -27,14 +26,14 @@ export default function TransitCard() {
       <CardHeader
         avatar={
           <Avatar
-            sx={{ backgroundColor: 'rgb(244, 67, 54)' }}
+            sx={{ backgroundColor: '#E63946' }}
             variant="rounded"
           >
             <DirectionsBus />
           </Avatar>
         }
-        title={<Typography variant="h5">Free Local Transit</Typography>}
-        subheader={new Date().toLocaleDateString()}
+        title={<Typography variant="h5">The Lift App</Typography>}
+        subheader="Free Local Transit"
       />
       <CardMedia
         className="media"

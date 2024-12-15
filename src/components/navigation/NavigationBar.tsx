@@ -42,7 +42,7 @@ function NavigationBar({ children }: React.PropsWithChildren) {
   return (
     <>
       <AppBar>
-        <Toolbar style={{ justifyContent: 'space-between' }}>
+        <Toolbar style={{ justifyContent: 'space-between', backgroundColor: "#457b9d" }}>
           <IconButton
             edge="start"
             color="inherit"

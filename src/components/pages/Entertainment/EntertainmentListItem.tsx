@@ -10,7 +10,7 @@ function EntertainmentListItem({ description, children, mainText }: IProps) {
   return (
     <ListItem >
       <ListItemAvatar>
-        <Avatar>
+        <Avatar sx={{ bgcolor: "#457b9d" }}>
           {children}
         </Avatar>
       </ListItemAvatar>

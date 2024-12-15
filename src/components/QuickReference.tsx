@@ -17,21 +17,21 @@ const items = [
 
 function QuickReference() {
   return (
-    <Grid container spacing={2} justifyContent="center">
+    <Grid container spacing={1} justifyContent="center">
       <DividerWithText value="Quick Reference" />
-      <Grid container spacing={2} justifyContent="space-between">
+      <Grid container justifyContent="space-between">
         {items.map((item) => (
           <Grid sx={{ width: item.route === 'trash' ? '100%' : '46%' }} key={item.route}>
-            <Card sx={{ borderRadius: 2 }}>
+            <Card sx={{ borderRadius: 1, backgroundColor: "#457B9D", color: 'white', boxShadow: '2px 2px 2px 1px #1D3557' }} >
               <CardContent sx={{ textAlign: 'center' }}>
                 <Link to={`/my-vacation-home/${item.route}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                   <CardMedia
                     component="div"
                     sx={{ height: 30, display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                   >
-                    <item.icon fontSize="large" color="primary" />
+                    <item.icon fontSize="large" />
                   </CardMedia>
-                  <Typography gutterBottom>
+                  <Typography>
                     {item.title}
                   </Typography>
                 </Link>

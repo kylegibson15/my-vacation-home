@@ -33,7 +33,7 @@ function GeneralInfo() {
           <Divider variant="inset" component="li" />
           <GeneralInfoListItem
             mainText="Ski's / Boards / SUP"
-            description="NO skis, snowboards, SUP boards, etc in the unit. Use the storage locker #302 on the same floor of the condo near the elevator with the provided key."
+            description="Storage locker #302 on the same floor of the condo near the elevator with the provided key is available to store your outdoor gear. Keys to locker can be found on a hook at the entrance of the condo."
           >
             <AcUnit />
           </GeneralInfoListItem>

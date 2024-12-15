@@ -16,9 +16,7 @@ const StyledImage = styled('img')(({ theme }) => ({
 
 function Fireplace() {
   return (
-    <div
-      style={{ height: '100%' }}
-    >
+    <div style={{ height: '100%' }}>
       <StyledContainer>
         <Typography variant="h4">
           Fireplace

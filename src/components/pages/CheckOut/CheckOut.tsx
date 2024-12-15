@@ -79,13 +79,13 @@ function CheckOut() {
                     onClick={handleBack}
                     variant="outlined"
                     size="small"
-                    sx={{ marginRight: theme.spacing(1) }} // Use theme for spacing
+                    sx={{ marginRight: theme.spacing(1) }}
                   >
                     Back
                   </Button>
                   <Button
                     variant="contained"
-                    color="primary"
+                    sx={{ backgroundColor: '#457B9D' }}
                     onClick={handleNext}
                     size="small"
                   >
