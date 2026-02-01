@@ -1,44 +1,25 @@
-import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AppShell from './components/AppShell';
+import Home from './pages/Home';
+import Guide from './pages/Guide';
+import CheckOut from './pages/CheckOut';
+import Explore from './pages/Explore';
 
-import {
-  CheckOut,
-  Contact,
-  Entertainment,
-  Home,
-  Fireplace,
-  GeneralInfo,
-  Kitchen,
-  Parking,
-  TrashAndRecycling
-} from './components/pages';
-import { NavigationBar } from './components';
-
-const BASE_ROUTE = '/my-vacation-home';
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 function App() {
-  const location = useLocation();
-
   return (
-    <NavigationBar>
-      <Routes location={location} key={location.pathname}>
-        <Route path={BASE_ROUTE} element={<Home />} />
-        <Route path={`${BASE_ROUTE}/check-out`} element={<CheckOut />} />
-        <Route path={`${BASE_ROUTE}/fireplace`} element={<Fireplace />} />
-        <Route path={`${BASE_ROUTE}/parking`} element={<Parking />} />
-        <Route path={`${BASE_ROUTE}/contact`} element={<Contact />} />
-        <Route path={`${BASE_ROUTE}/general`} element={<GeneralInfo />} />
-        <Route path={`${BASE_ROUTE}/kitchen`} element={<Kitchen />} />
-        <Route
-          path={`${BASE_ROUTE}/trash`}
-          element={<TrashAndRecycling />}
-        />
-        <Route
-          path={`${BASE_ROUTE}/entertainment`}
-          element={<Entertainment />}
-        />
+    <BrowserRouter>
+      <Routes>
+        <Route element={<AppShell />}>
+          <Route path={BASE} element={<Home />} />
+          <Route path={`${BASE}/`} element={<Home />} />
+          <Route path={`${BASE}/guide`} element={<Guide />} />
+          <Route path={`${BASE}/check-out`} element={<CheckOut />} />
+          <Route path={`${BASE}/explore`} element={<Explore />} />
+        </Route>
       </Routes>
-    </NavigationBar>
+    </BrowserRouter>
   );
 }
 
