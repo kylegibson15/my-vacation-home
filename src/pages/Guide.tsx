@@ -1,4 +1,5 @@
 import { Car, Lock, ChefHat, Flame, ScrollText, Phone } from 'lucide-react';
+import FadeIn from '../components/FadeIn';
 
 const sections = [
   {
@@ -83,26 +84,27 @@ export default function Guide() {
   return (
     <div className="px-4 pt-6 pb-10">
       <div className="mb-5">
-        <h1 className="text-2xl font-bold text-text-primary">House Guide</h1>
-        <p className="text-text-secondary text-sm">Everything you need to know</p>
+        <h1 className="text-2xl font-bold text-text-primary md:text-3xl">House Guide</h1>
+        <p className="text-text-secondary text-sm md:text-base">Everything you need to know</p>
       </div>
 
-      {sections.map(({ icon: Icon, title, bgColor, iconColor, content }) => (
-        <div
-          key={title}
-          className="bg-warm-surface rounded-2xl shadow-sm p-5 mb-3"
-        >
-          <div className="flex items-center gap-3 mb-3">
-            <div
-              className={`${bgColor} w-9 h-9 flex items-center justify-center rounded-lg`}
-            >
-              <Icon className={`${iconColor} w-[18px] h-[18px]`} />
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {sections.map(({ icon: Icon, title, bgColor, iconColor, content }, index) => (
+          <FadeIn key={title} delay={index * 0.06}>
+            <div className="bg-warm-surface rounded-2xl shadow-sm p-5 h-full">
+              <div className="flex items-center gap-3 mb-3">
+                <div
+                  className={`${bgColor} w-9 h-9 flex items-center justify-center rounded-lg`}
+                >
+                  <Icon className={`${iconColor} w-4.5 h-4.5`} />
+                </div>
+                <h2 className="font-bold text-text-primary">{title}</h2>
+              </div>
+              {content}
             </div>
-            <h2 className="font-bold text-text-primary">{title}</h2>
-          </div>
-          {content}
-        </div>
-      ))}
+          </FadeIn>
+        ))}
+      </div>
     </div>
   );
 }

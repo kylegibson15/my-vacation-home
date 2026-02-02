@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, CircleCheckBig } from 'lucide-react';
+import FadeIn from '../components/FadeIn';
+import Confetti from '../components/Confetti';
 
 const tasks = [
   {
@@ -58,6 +60,7 @@ function saveChecked(checked: Set<string>) {
 
 export default function CheckOut() {
   const [checked, setChecked] = useState<Set<string>>(() => new Set());
+  const [showConfetti, setShowConfetti] = useState(false);
 
   useEffect(() => {
     setChecked(loadChecked());
@@ -72,6 +75,13 @@ export default function CheckOut() {
         next.add(id);
       }
       saveChecked(next);
+
+      // Trigger confetti when completing all tasks
+      if (next.size === tasks.length) {
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 3000);
+      }
+
       return next;
     });
   }, []);
@@ -82,11 +92,13 @@ export default function CheckOut() {
   const allDone = completedCount === totalCount;
 
   return (
-    <div className="min-h-screen bg-warm-bg px-4 py-8 pb-16">
+    <div className="px-4 pt-6 pb-10">
+      <Confetti active={showConfetti} />
+
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-text-primary">Check Out</h1>
-        <p className="mt-1 text-sm text-text-tertiary">
+        <h1 className="text-2xl font-bold text-text-primary md:text-3xl">Check Out</h1>
+        <p className="mt-1 text-sm text-text-tertiary md:text-base">
           Complete these before you leave
         </p>
       </div>
@@ -95,72 +107,72 @@ export default function CheckOut() {
       <div className="mb-6 flex items-center gap-3">
         <div className="h-2 flex-1 overflow-hidden rounded-full bg-warm-muted">
           <motion.div
-            className="h-full rounded-full bg-gradient-to-r from-sage to-sage-light"
+            className="h-full rounded-full bg-linear-to-r from-sage to-sage-light"
             initial={{ width: 0 }}
             animate={{ width: `${progress * 100}%` }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
           />
         </div>
         <span className="shrink-0 text-xs text-text-tertiary">
-          {completedCount} of {totalCount} complete
+          {completedCount} of {totalCount}
         </span>
       </div>
 
       {/* Checklist card */}
-      <div className="overflow-hidden rounded-2xl bg-warm-surface shadow-sm">
-        {tasks.map((task, index) => {
-          const isDone = checked.has(task.id);
-          const isLast = index === tasks.length - 1;
+      <FadeIn>
+        <div className="overflow-hidden rounded-2xl bg-warm-surface shadow-sm">
+          {tasks.map((task, index) => {
+            const isDone = checked.has(task.id);
+            const isLast = index === tasks.length - 1;
 
-          return (
-            <button
-              key={task.id}
-              type="button"
-              onClick={() => toggle(task.id)}
-              className={`flex w-full items-start gap-3 px-4 py-3.5 text-left transition-colors active:bg-warm-muted ${
-                !isLast ? 'border-b border-warm-border' : ''
-              }`}
-              aria-label={`Mark ${task.title} as ${isDone ? 'incomplete' : 'complete'}`}
-            >
-              {/* Custom checkbox */}
-              <div
-                className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 transition-colors ${
-                  isDone
-                    ? 'border-sage bg-sage'
-                    : 'border-warm-border bg-transparent'
+            return (
+              <button
+                key={task.id}
+                type="button"
+                onClick={() => toggle(task.id)}
+                className={`flex w-full items-start gap-3 px-4 py-3.5 text-left transition-colors active:bg-warm-muted ${
+                  !isLast ? 'border-b border-warm-border' : ''
                 }`}
+                aria-label={`Mark ${task.title} as ${isDone ? 'incomplete' : 'complete'}`}
               >
-                <AnimatePresence>
-                  {isDone && (
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      exit={{ scale: 0 }}
-                      transition={{ duration: 0.15, ease: 'easeOut' }}
-                    >
-                      <Check className="h-4 w-4 text-white" strokeWidth={3} />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {/* Text content */}
-              <div className="min-w-0 flex-1">
-                <p
-                  className={`text-sm font-semibold text-text-primary transition-all ${
-                    isDone ? 'line-through opacity-50' : ''
+                <div
+                  className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 transition-colors ${
+                    isDone
+                      ? 'border-sage bg-sage'
+                      : 'border-warm-border bg-transparent'
                   }`}
                 >
-                  {task.title}
-                </p>
-                <p className="mt-0.5 text-xs text-text-secondary">
-                  {task.desc}
-                </p>
-              </div>
-            </button>
-          );
-        })}
-      </div>
+                  <AnimatePresence>
+                    {isDone && (
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0 }}
+                        transition={{ duration: 0.15, ease: 'easeOut' }}
+                      >
+                        <Check className="h-4 w-4 text-white" strokeWidth={3} />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <div className="min-w-0 flex-1">
+                  <p
+                    className={`text-sm font-semibold text-text-primary transition-all ${
+                      isDone ? 'line-through opacity-50' : ''
+                    }`}
+                  >
+                    {task.title}
+                  </p>
+                  <p className="mt-0.5 text-xs text-text-secondary">
+                    {task.desc}
+                  </p>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </FadeIn>
 
       {/* Completion state */}
       <AnimatePresence>

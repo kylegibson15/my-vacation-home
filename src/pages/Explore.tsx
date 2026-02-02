@@ -1,19 +1,24 @@
 import { Bus, Gamepad2, Dice5, Tv, Trash2, Smartphone } from 'lucide-react';
 import { dumpster, garage_dumpster, posted_sign } from '../images';
 import theLift from '../images/TheLiftWinterPark.jpg';
+import FadeIn from '../components/FadeIn';
 
 export default function Explore() {
   return (
     <div className="px-4 pt-6 pb-10">
       <div className="mb-5">
-        <h1 className="text-2xl font-bold text-text-primary">Explore</h1>
-        <p className="text-text-secondary text-sm">
+        <h1 className="text-2xl font-bold text-text-primary md:text-3xl">Explore</h1>
+        <p className="text-text-secondary text-sm md:text-base">
           Local transit, entertainment &amp; more
         </p>
       </div>
 
+      {/* Transit + Entertainment side by side on desktop */}
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 mb-3">
+
       {/* Transit Card */}
-      <div className="bg-warm-surface rounded-2xl shadow-sm overflow-hidden mb-3">
+      <FadeIn>
+      <div className="bg-warm-surface rounded-2xl shadow-sm overflow-hidden h-full">
         <img
           src={theLift}
           alt="The Lift Winter Park"
@@ -22,7 +27,7 @@ export default function Explore() {
         <div className="p-5">
           <div className="flex items-center gap-3 mb-3">
             <div className="bg-amber/10 w-9 h-9 flex items-center justify-center rounded-lg">
-              <Bus className="text-amber w-[18px] h-[18px]" />
+              <Bus className="text-amber w-4.5 h-4.5" />
             </div>
             <h2 className="font-bold text-text-primary">
               The Lift — Free Local Transit
@@ -56,37 +61,43 @@ export default function Explore() {
           </div>
         </div>
       </div>
+      </FadeIn>
 
       {/* Entertainment Card */}
-      <div className="bg-warm-surface rounded-2xl shadow-sm p-5 mb-3">
+      <FadeIn delay={0.08}>
+      <div className="bg-warm-surface rounded-2xl shadow-sm p-5 h-full">
         <div className="flex items-center gap-3 mb-3">
           <div className="bg-sage/10 w-9 h-9 flex items-center justify-center rounded-lg">
-            <Gamepad2 className="text-sage w-[18px] h-[18px]" />
+            <Gamepad2 className="text-sage w-4.5 h-4.5" />
           </div>
           <h2 className="font-bold text-text-primary">Entertainment</h2>
         </div>
         <div className="space-y-3">
           <div className="flex items-start gap-2.5">
-            <Dice5 className="w-4 h-4 text-text-tertiary mt-0.5 flex-shrink-0" />
+            <Dice5 className="w-4 h-4 text-text-tertiary mt-0.5 shrink-0" />
             <p className="text-sm text-text-secondary leading-relaxed">
               Board games are on the shelf to the left of the fireplace,
               including games for kids.
             </p>
           </div>
           <div className="flex items-start gap-2.5">
-            <Tv className="w-4 h-4 text-text-tertiary mt-0.5 flex-shrink-0" />
+            <Tv className="w-4 h-4 text-text-tertiary mt-0.5 shrink-0" />
             <p className="text-sm text-text-secondary leading-relaxed">
               Cable TV is available in the living room and bedrooms.
             </p>
           </div>
         </div>
       </div>
+      </FadeIn>
+
+      </div>{/* end grid */}
 
       {/* Trash & Recycling Card */}
+      <FadeIn delay={0.12}>
       <div className="bg-warm-surface rounded-2xl shadow-sm p-5 mb-3">
         <div className="flex items-center gap-3 mb-3">
           <div className="bg-amber/10 w-9 h-9 flex items-center justify-center rounded-lg">
-            <Trash2 className="text-amber w-[18px] h-[18px]" />
+            <Trash2 className="text-amber w-4.5 h-4.5" />
           </div>
           <h2 className="font-bold text-text-primary">Trash &amp; Recycling</h2>
         </div>
@@ -106,7 +117,7 @@ export default function Explore() {
             'Break down all boxes before recycling',
           ].map((item) => (
             <li key={item} className="flex items-start gap-2">
-              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-text-tertiary" />
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-text-tertiary" />
               {item}
             </li>
           ))}
@@ -127,7 +138,7 @@ export default function Explore() {
             'Wildlife is very active in the mountains!',
           ].map((item) => (
             <li key={item} className="flex items-start gap-2">
-              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-text-tertiary" />
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-text-tertiary" />
               {item}
             </li>
           ))}
@@ -135,10 +146,11 @@ export default function Explore() {
         <img
           src={posted_sign}
           alt="Posted wildlife sign"
-          className="rounded-xl max-w-[240px] mx-auto mt-3"
+          className="rounded-xl max-w-60 mx-auto mt-3"
           loading="lazy"
         />
       </div>
+      </FadeIn>
     </div>
   );
 }
