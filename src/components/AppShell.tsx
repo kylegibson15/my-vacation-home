@@ -1,11 +1,12 @@
 import { Outlet, useLocation, Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Home, BookOpen, ClipboardCheck, Compass } from 'lucide-react';
+import { Home, KeyRound, BookOpen, ClipboardCheck, Compass } from 'lucide-react';
 
 const BASE_ROUTE = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const tabs = [
   { label: 'Home', icon: Home, path: BASE_ROUTE || '/' },
+  { label: 'Access', icon: KeyRound, path: `${BASE_ROUTE}/access` },
   { label: 'Guide', icon: BookOpen, path: `${BASE_ROUTE}/guide` },
   { label: 'Check Out', icon: ClipboardCheck, path: `${BASE_ROUTE}/check-out` },
   { label: 'Explore', icon: Compass, path: `${BASE_ROUTE}/explore` },
@@ -16,15 +17,18 @@ export default function AppShell() {
 
   const isActive = (path: string) => {
     if (path === BASE_ROUTE || path === '/') {
-      return location.pathname === BASE_ROUTE || location.pathname === `${BASE_ROUTE}/` || location.pathname === '/';
+      return (
+        location.pathname === BASE_ROUTE ||
+        location.pathname === `${BASE_ROUTE}/` ||
+        location.pathname === '/'
+      );
     }
     return location.pathname.startsWith(path);
   };
 
   return (
-    <div className="flex min-h-dvh flex-col bg-warm-bg">
-      {/* Desktop: centered "phone frame" with subtle shadow */}
-      <main className="mx-auto w-full max-w-2xl flex-1 overflow-y-auto pb-20 md:my-8 md:rounded-3xl md:bg-warm-surface md:pb-24 md:shadow-xl md:ring-1 md:ring-warm-border">
+    <div className="topo flex min-h-dvh flex-col">
+      <main className="mx-auto w-full max-w-2xl flex-1 pb-24 md:my-8 md:overflow-hidden md:rounded-3xl md:bg-card md:pb-28 md:shadow-[0_20px_60px_rgba(31,58,46,0.18)] md:ring-1 md:ring-line">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -38,19 +42,22 @@ export default function AppShell() {
         </AnimatePresence>
       </main>
 
-      {/* Bottom nav — constrained to same max-width on desktop */}
-      <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-warm-border bg-white/80 backdrop-blur-xl pb-[env(safe-area-inset-bottom)] md:bg-white/95">
-        <div className="mx-auto flex max-w-2xl items-center justify-around px-2 pt-2 pb-1 md:rounded-b-3xl">
+      <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-card/94 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-2xl items-end justify-around px-2 pt-2.5 pb-1.5">
           {tabs.map(({ label, icon: Icon, path }) => {
             const active = isActive(path);
             return (
               <Link
                 key={path}
                 to={path}
-                className={`flex flex-1 flex-col items-center gap-0.5 transition-colors ${active ? 'text-amber' : 'text-text-tertiary hover:text-text-secondary'}`}
+                className={`flex w-16 flex-col items-center gap-1 transition-colors ${
+                  active ? 'text-cedar' : 'text-ash hover:text-stone'
+                }`}
               >
                 <Icon size={22} strokeWidth={active ? 2.2 : 1.8} />
-                <span className="text-[10px] font-medium leading-tight">{label}</span>
+                <span className={`text-[10px] leading-tight ${active ? 'font-bold' : 'font-semibold'}`}>
+                  {label}
+                </span>
               </Link>
             );
           })}
