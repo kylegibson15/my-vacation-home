@@ -24,3 +24,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Guest-only plaintext (encrypt with scripts/encrypt-secrets.mjs)
+secrets.json

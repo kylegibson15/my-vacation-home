@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Check, CircleCheckBig } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Confetti from '../components/Confetti';
+import { PageHeader } from '../components/ui';
 
 const tasks = [
   {
@@ -36,9 +37,19 @@ const tasks = [
     desc: 'Strip beds. Place used towels on tile floor.',
   },
   {
+    id: 'fireplace',
+    title: 'Fireplace',
+    desc: 'Turn the fireplace thermostat down to 60°F.',
+  },
+  {
+    id: 'storage',
+    title: 'Storage locker',
+    desc: 'Empty locker #302 and hang the building & locker keys back on the entry hook.',
+  },
+  {
     id: 'keys',
-    title: 'Keys',
-    desc: 'Return the lockbox key to its place.',
+    title: 'Lockbox key',
+    desc: 'Return the lockbox key to the lockbox.',
   },
 ];
 
@@ -92,35 +103,28 @@ export default function CheckOut() {
   const allDone = completedCount === totalCount;
 
   return (
-    <div className="px-4 pt-6 pb-10">
+    <div className="pb-8">
       <Confetti active={showConfetti} />
-
-      {/* Header */}
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-text-primary md:text-3xl">Check Out</h1>
-        <p className="mt-1 text-sm text-text-tertiary md:text-base">
-          Complete these before you leave
-        </p>
-      </div>
+      <PageHeader kicker="Before you leave" title="Check out" />
 
       {/* Progress bar */}
-      <div className="mb-6 flex items-center gap-3">
-        <div className="h-2 flex-1 overflow-hidden rounded-full bg-warm-muted">
+      <div className="mx-5 mt-6 mb-5 flex items-center gap-3">
+        <div className="h-2 flex-1 overflow-hidden rounded-full bg-line">
           <motion.div
-            className="h-full rounded-full bg-linear-to-r from-sage to-sage-light"
+            className="h-full rounded-full bg-pine"
             initial={{ width: 0 }}
             animate={{ width: `${progress * 100}%` }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
           />
         </div>
-        <span className="shrink-0 text-xs text-text-tertiary">
+        <span className="shrink-0 font-serif text-base text-pine">
           {completedCount} of {totalCount}
         </span>
       </div>
 
       {/* Checklist card */}
-      <FadeIn>
-        <div className="overflow-hidden rounded-2xl bg-warm-surface shadow-sm">
+      <FadeIn className="mx-5">
+        <div className="overflow-hidden rounded-[18px] border border-line bg-card">
           {tasks.map((task, index) => {
             const isDone = checked.has(task.id);
             const isLast = index === tasks.length - 1;
@@ -130,16 +134,16 @@ export default function CheckOut() {
                 key={task.id}
                 type="button"
                 onClick={() => toggle(task.id)}
-                className={`flex w-full items-start gap-3 px-4 py-3.5 text-left transition-colors active:bg-warm-muted ${
-                  !isLast ? 'border-b border-warm-border' : ''
+                className={`flex w-full items-start gap-3 px-4 py-3.5 text-left transition-colors active:bg-paper ${
+                  !isLast ? 'border-b border-line' : ''
                 }`}
                 aria-label={`Mark ${task.title} as ${isDone ? 'incomplete' : 'complete'}`}
               >
                 <div
                   className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 transition-colors ${
                     isDone
-                      ? 'border-sage bg-sage'
-                      : 'border-warm-border bg-transparent'
+                      ? 'border-pine bg-pine'
+                      : 'border-line bg-transparent'
                   }`}
                 >
                   <AnimatePresence>
@@ -158,13 +162,13 @@ export default function CheckOut() {
 
                 <div className="min-w-0 flex-1">
                   <p
-                    className={`text-sm font-semibold text-text-primary transition-all ${
+                    className={`text-sm font-bold text-ink transition-all ${
                       isDone ? 'line-through opacity-50' : ''
                     }`}
                   >
                     {task.title}
                   </p>
-                  <p className="mt-0.5 text-xs text-text-secondary">
+                  <p className="mt-0.5 text-xs text-stone">
                     {task.desc}
                   </p>
                 </div>
@@ -184,11 +188,11 @@ export default function CheckOut() {
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
           >
-            <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-sage/10">
-              <CircleCheckBig className="h-8 w-8 text-sage" />
+            <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-pine/8">
+              <CircleCheckBig className="h-8 w-8 text-pine" />
             </div>
-            <p className="text-lg font-bold text-text-primary">All done!</p>
-            <p className="mt-1 text-sm text-text-tertiary">
+            <p className="font-serif text-2xl text-pine">All done!</p>
+            <p className="mt-1 text-sm text-stone">
               Thank you for staying with us. Safe travels!
             </p>
           </motion.div>

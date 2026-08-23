@@ -1,110 +1,270 @@
-import { Car, Lock, ChefHat, Flame, ScrollText, Phone } from 'lucide-react';
+import { ReactNode, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import {
+  MapPin,
+  ChefHat,
+  Flame,
+  ScrollText,
+  TriangleAlert,
+  Mountain,
+  PawPrint,
+  CircleHelp,
+  Phone,
+  Tv,
+  ChevronDown,
+} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
+import { Bullets, IconBadge, Kicker, PageHeader } from '../components/ui';
+import { BUILDING } from '../lib/building';
 
-const sections = [
+interface Section {
+  id: string;
+  icon: LucideIcon;
+  tone?: 'pine' | 'cedar';
+  title: string;
+  content: ReactNode;
+}
+
+const P = ({ children }: { children: ReactNode }) => (
+  <p className="text-[13.5px] leading-relaxed text-stone">{children}</p>
+);
+const B = ({ children }: { children: ReactNode }) => (
+  <strong className="font-bold text-ink">{children}</strong>
+);
+const Row = ({ label, children }: { label: string; children: ReactNode }) => (
+  <p className="text-[13.5px] leading-relaxed text-stone">
+    <B>{label}</B> — {children}
+  </p>
+);
+
+const groups: { kicker: string; sections: Section[] }[] = [
   {
-    icon: Car,
-    title: 'Parking',
-    bgColor: 'bg-slate-brand/10',
-    iconColor: 'text-slate-brand',
-    content: (
-      <p className="text-sm text-text-secondary leading-relaxed">
-        Parking is underneath the building — unassigned, but please limit to one car.
-      </p>
-    ),
+    kicker: 'Settling in',
+    sections: [
+      {
+        id: 'arrival',
+        icon: MapPin,
+        title: 'Arrival & parking',
+        content: (
+          <div className="space-y-2">
+            <P>
+              Cars under <B>6'8"</B> can park in the garage under the building. Taller vehicles
+              (or a second car) can use the lot behind the building, and Cooper Square next door
+              is a free garage with EV chargers.
+            </P>
+            <P>
+              Take the elevator to 3. Storage locker <B>#302</B> is on this floor near the elevator
+              — use it for skis, boards, and bikes. The key hangs {BUILDING.keyLocation}.
+            </P>
+          </div>
+        ),
+      },
+      {
+        id: 'kitchen',
+        icon: ChefHat,
+        title: 'Kitchen',
+        content: (
+          <P>
+            The kitchen is stocked and ready. Please scrape and rinse dishes before loading the
+            dishwasher. Before leaving, start the dishwasher with any remaining dirty dishes —
+            we'll put them away for you.
+          </P>
+        ),
+      },
+      {
+        id: 'appliances',
+        icon: Tv,
+        title: 'Appliance cheat sheet',
+        content: (
+          <div className="space-y-2">
+            <Row label="TV">cable in the living room and bedrooms. [Remote / input steps]</Row>
+            <Row label="Dishwasher">pods are under the sink.</Row>
+            <Row label="Coffee">[machine type & where the coffee lives]</Row>
+            <Row label="Washer / dryer">laundry room in the building, open 24 hours — code is in Access.</Row>
+            <Row label="Thermostat">inside the shelving unit to the left of the TV.</Row>
+          </div>
+        ),
+      },
+      {
+        id: 'fireplace',
+        icon: Flame,
+        tone: 'cedar',
+        title: 'Fireplace',
+        content: (
+          <P>
+            The thermostat is inside the shelving unit to the left of the TV. Set it to your
+            preference — the fireplace turns on and off automatically. Please turn it down to 60°
+            before you leave.
+          </P>
+        ),
+      },
+      {
+        id: 'rules',
+        icon: ScrollText,
+        title: 'House rules',
+        content: (
+          <Bullets
+            items={[
+              'Remove shoes at the door',
+              'Quiet hours: 10pm – 9am',
+              'No smoking of any kind, including vape',
+              'No trash in the hallway — use the garage bins',
+              'Hot tub room: 9am – 10pm, no glass',
+              'One car in the garage per unit',
+            ]}
+          />
+        ),
+      },
+    ],
   },
   {
-    icon: Lock,
-    title: 'Storage',
-    bgColor: 'bg-sage/10',
-    iconColor: 'text-sage',
-    content: (
-      <p className="text-sm text-text-secondary leading-relaxed">
-        Storage locker #302 is on the same floor near the elevator. Use the provided key (found on a hook at the entrance) for skis, boards, and outdoor gear.
-      </p>
-    ),
+    kicker: 'Safety',
+    sections: [
+      {
+        id: 'emergency',
+        icon: TriangleAlert,
+        tone: 'cedar',
+        title: 'Emergency & urgent care',
+        content: (
+          <div className="space-y-2">
+            <Row label="Emergency">911</Row>
+            <Row label="Urgent care">[nearest clinic, address, hours]</Row>
+            <Row label="Hospital">Middle Park Health — Granby, ~25 min</Row>
+            <Row label="Host">[phone number]</Row>
+            <Row label="Water shutoff">[location]</Row>
+          </div>
+        ),
+      },
+      {
+        id: 'altitude',
+        icon: Mountain,
+        title: 'Altitude, weather & roads',
+        content: (
+          <div className="space-y-2">
+            <P>
+              You're at about 9,000 ft. Drink more water than feels necessary, go easy on alcohol
+              the first night, and take day one slow. Sun is strong year-round — sunscreen even
+              when it's cloudy.
+            </P>
+            <P>
+              Weather changes fast. Before driving Berthoud Pass or I-70, check{' '}
+              <a href="https://www.cotrip.org" target="_blank" rel="noopener noreferrer" className="font-semibold underline">
+                COtrip
+              </a>{' '}
+              for closures and Colorado's traction law — on snow days you need snow tires, AWD/4WD,
+              or chains.
+            </P>
+          </div>
+        ),
+      },
+      {
+        id: 'wildlife',
+        icon: PawPrint,
+        title: 'Wildlife & pets',
+        content: (
+          <div className="space-y-2">
+            <P>
+              Moose and bears are regulars around the building. Give moose a wide berth — they
+              are faster and grumpier than they look. Never leave trash outside the bins, and keep
+              food out of cars.
+            </P>
+            <P>
+              <B>Pets are welcome.</B> Please keep them leashed in the hallways and garage, pick
+              up after them, and keep them off the beds. [Where to walk them]
+            </P>
+          </div>
+        ),
+      },
+    ],
   },
   {
-    icon: ChefHat,
-    title: 'Kitchen',
-    bgColor: 'bg-amber/10',
-    iconColor: 'text-amber',
-    content: (
-      <p className="text-sm text-text-secondary leading-relaxed">
-        The kitchen is stocked and ready! Please scrape and rinse dishes before loading the dishwasher. Before leaving, start the dishwasher with any remaining dirty dishes — we'll put them away for you.
-      </p>
-    ),
-  },
-  {
-    icon: Flame,
-    title: 'Fireplace',
-    bgColor: 'bg-amber/10',
-    iconColor: 'text-amber',
-    content: (
-      <p className="text-sm text-text-secondary leading-relaxed">
-        The thermostat is inside the shelving unit to the left of the TV. Set it to your preference — the fireplace turns on and off automatically. Please turn it down to 60° before you leave.
-      </p>
-    ),
-  },
-  {
-    icon: ScrollText,
-    title: 'House Rules',
-    bgColor: 'bg-slate-brand/10',
-    iconColor: 'text-slate-brand',
-    content: (
-      <ul className="space-y-2 text-sm text-text-secondary leading-relaxed">
-        {[
-          'Remove shoes at the door',
-          'Quiet hours: 10pm – 9am',
-          'No smoking of any kind, including vape',
-          'No trash in the hallway — use garage bins',
-        ].map((rule) => (
-          <li key={rule} className="flex items-start gap-2">
-            <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-text-tertiary" />
-            {rule}
-          </li>
-        ))}
-      </ul>
-    ),
-  },
-  {
-    icon: Phone,
-    title: 'Contact',
-    bgColor: 'bg-sage/10',
-    iconColor: 'text-sage',
-    content: (
-      <p className="text-sm text-text-secondary leading-relaxed">
-        Need help? Message or call Vacasa — they'll be able to assist you with anything during your stay.
-      </p>
-    ),
+    kicker: 'Good to know',
+    sections: [
+      {
+        id: 'faq',
+        icon: CircleHelp,
+        title: 'FAQ',
+        content: (
+          <div className="space-y-2">
+            <Row label="Extra blankets">[where]</Row>
+            <Row label="Hair dryer">[where]</Row>
+            <Row label="First-aid kit">[where]</Row>
+            <Row label="Vacuum & iron">[where]</Row>
+            <Row label="Board games">on the shelf to the left of the fireplace, including games for kids.</Row>
+          </div>
+        ),
+      },
+      {
+        id: 'contact',
+        icon: Phone,
+        title: 'Contact',
+        content: (
+          <P>
+            Need help? Message or call us directly — we're happy to help with anything during
+            your stay. [Host phone number]
+          </P>
+        ),
+      },
+    ],
   },
 ];
 
 export default function Guide() {
-  return (
-    <div className="px-4 pt-6 pb-10">
-      <div className="mb-5">
-        <h1 className="text-2xl font-bold text-text-primary md:text-3xl">House Guide</h1>
-        <p className="text-text-secondary text-sm md:text-base">Everything you need to know</p>
-      </div>
+  const [open, setOpen] = useState<Set<string>>(() => new Set(['arrival']));
 
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {sections.map(({ icon: Icon, title, bgColor, iconColor, content }, index) => (
-          <FadeIn key={title} delay={index * 0.06}>
-            <div className="bg-warm-surface rounded-2xl shadow-sm p-5 h-full">
-              <div className="flex items-center gap-3 mb-3">
-                <div
-                  className={`${bgColor} w-9 h-9 flex items-center justify-center rounded-lg`}
-                >
-                  <Icon className={`${iconColor} w-4.5 h-4.5`} />
+  const toggle = (id: string) =>
+    setOpen((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+
+  return (
+    <div className="pb-8">
+      <PageHeader kicker="Everything you need" title="House guide" />
+      {groups.map((group, gi) => (
+        <FadeIn key={group.kicker} delay={gi * 0.06}>
+          <Kicker className="mt-6 mb-2.5 px-5">{group.kicker}</Kicker>
+          <div className="mx-5 overflow-hidden rounded-[18px] border border-line bg-card">
+            {group.sections.map((s, i) => {
+              const isOpen = open.has(s.id);
+              const last = i === group.sections.length - 1;
+              return (
+                <div key={s.id} className={!last || isOpen ? 'border-b border-line' : ''}>
+                  <button
+                    type="button"
+                    onClick={() => toggle(s.id)}
+                    aria-expanded={isOpen}
+                    className="flex w-full items-center gap-3.5 px-4 py-4 text-left transition-colors active:bg-paper"
+                  >
+                    <IconBadge icon={s.icon} tone={s.tone} />
+                    <span className="flex-1 text-[15px] font-bold">{s.title}</span>
+                    <ChevronDown
+                      size={18}
+                      className={`shrink-0 text-cedar transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25, ease: 'easeOut' }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-4 pb-4 pl-[76px]">{s.content}</div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-                <h2 className="font-bold text-text-primary">{title}</h2>
-              </div>
-              {content}
-            </div>
-          </FadeIn>
-        ))}
-      </div>
+              );
+            })}
+          </div>
+        </FadeIn>
+      ))}
     </div>
   );
 }
