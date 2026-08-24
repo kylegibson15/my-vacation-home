@@ -17,6 +17,7 @@ import type { LucideIcon } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import { Bullets, IconBadge, Kicker, PageHeader } from '../components/ui';
 import { BUILDING } from '../lib/building';
+import { SHOW_DRAFTS } from '../lib/flags';
 
 interface Section {
   id: string;
@@ -37,6 +38,15 @@ const Row = ({ label, children }: { label: string; children: ReactNode }) => (
     <B>{label}</B> — {children}
   </p>
 );
+/** Renders only in local dev until the real content is filled in. */
+const Draft = ({ children }: { children: ReactNode }) =>
+  SHOW_DRAFTS ? <span className="text-cedar">{children}</span> : null;
+const DraftRow = ({ label, children }: { label: string; children: ReactNode }) =>
+  SHOW_DRAFTS ? (
+    <p className="text-[13.5px] leading-relaxed text-cedar">
+      <strong className="font-bold">{label}</strong> — {children}
+    </p>
+  ) : null;
 
 const groups: { kicker: string; sections: Section[] }[] = [
   {
@@ -78,9 +88,9 @@ const groups: { kicker: string; sections: Section[] }[] = [
         title: 'Appliance cheat sheet',
         content: (
           <div className="space-y-2">
-            <Row label="TV">cable in the living room and bedrooms. [Remote / input steps]</Row>
+            <Row label="TV">cable in the living room and bedrooms.<Draft> [Remote / input steps]</Draft></Row>
             <Row label="Dishwasher">pods are under the sink.</Row>
-            <Row label="Coffee">[machine type & where the coffee lives]</Row>
+            <DraftRow label="Coffee">[machine type & where the coffee lives]</DraftRow>
             <Row label="Washer / dryer">laundry room in the building, open 24 hours — code is in Access.</Row>
             <Row label="Thermostat">inside the shelving unit to the left of the TV.</Row>
           </div>
@@ -129,10 +139,10 @@ const groups: { kicker: string; sections: Section[] }[] = [
         content: (
           <div className="space-y-2">
             <Row label="Emergency">911</Row>
-            <Row label="Urgent care">[nearest clinic, address, hours]</Row>
+            <DraftRow label="Urgent care">[nearest clinic, address, hours]</DraftRow>
             <Row label="Hospital">Middle Park Health — Granby, ~25 min</Row>
-            <Row label="Host">[phone number]</Row>
-            <Row label="Water shutoff">[location]</Row>
+            <DraftRow label="Host">[phone number]</DraftRow>
+            <DraftRow label="Water shutoff">[location]</DraftRow>
           </div>
         ),
       },
@@ -171,7 +181,7 @@ const groups: { kicker: string; sections: Section[] }[] = [
             </P>
             <P>
               <B>Pets are welcome.</B> Please keep them leashed in the hallways and garage, pick
-              up after them, and keep them off the beds. [Where to walk them]
+              up after them, and keep them off the beds.<Draft> [Where to walk them]</Draft>
             </P>
           </div>
         ),
@@ -187,10 +197,10 @@ const groups: { kicker: string; sections: Section[] }[] = [
         title: 'FAQ',
         content: (
           <div className="space-y-2">
-            <Row label="Extra blankets">[where]</Row>
-            <Row label="Hair dryer">[where]</Row>
-            <Row label="First-aid kit">[where]</Row>
-            <Row label="Vacuum & iron">[where]</Row>
+            <DraftRow label="Extra blankets">[where]</DraftRow>
+            <DraftRow label="Hair dryer">[where]</DraftRow>
+            <DraftRow label="First-aid kit">[where]</DraftRow>
+            <DraftRow label="Vacuum & iron">[where]</DraftRow>
             <Row label="Board games">on the shelf to the left of the fireplace, including games for kids.</Row>
           </div>
         ),
@@ -202,7 +212,7 @@ const groups: { kicker: string; sections: Section[] }[] = [
         content: (
           <P>
             Need help? Message or call us directly — we're happy to help with anything during
-            your stay. [Host phone number]
+            your stay.<Draft> [Host phone number]</Draft>
           </P>
         ),
       },
