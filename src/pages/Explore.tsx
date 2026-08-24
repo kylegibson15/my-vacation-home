@@ -4,12 +4,16 @@ import { dumpster, garage_dumpster, posted_sign } from '../images';
 import theLift from '../images/TheLiftWinterPark.jpg';
 import FadeIn from '../components/FadeIn';
 import { Bullets, Card, IconBadge, Kicker, PageHeader } from '../components/ui';
+import { SHOW_DRAFTS } from '../lib/flags';
 
 type Season = 'winter' | 'summer';
 
 const seasonal: Record<Season, { title: string; note: string }[]> = {
   winter: [
-    { title: 'Winter Park Resort', note: '10 min on the Lift. [rental shop / ski-check tip]' },
+    {
+    title: 'Winter Park Resort',
+    note: SHOW_DRAFTS ? '10 min on the Lift. [rental shop / ski-check tip]' : '10 min on the Lift',
+  },
     { title: 'Hot Sulphur Springs', note: '30 min west — soak after a ski day' },
     { title: 'Snowshoe & XC at Devil’s Thumb Ranch', note: '15 min north, rentals on site' },
     { title: 'Berthoud Pass', note: 'Check COtrip before driving; traction law applies on snow days' },
@@ -22,13 +26,14 @@ const seasonal: Record<Season, { title: string; note: string }[]> = {
   ],
 };
 
-const picks = [
-  { name: '[Restaurant name]', sub: '[why we love it] · downtown', tag: 'Dinner' },
-  { name: '[Breakfast / coffee spot]', sub: '[one-line note]', tag: 'Coffee' },
+const allPicks = [
+  { name: '[Restaurant name]', sub: '[why we love it] · downtown', tag: 'Dinner', draft: true },
+  { name: '[Breakfast / coffee spot]', sub: '[one-line note]', tag: 'Coffee', draft: true },
   { name: 'Safeway, Fraser', sub: 'Closest full grocery · 5 min', tag: 'Grocery' },
-  { name: '[Liquor store]', sub: '[one-line note]', tag: 'Liquor' },
-  { name: '[Gear rental]', sub: 'Skis, bikes, snowshoes', tag: 'Gear' },
+  { name: '[Liquor store]', sub: '[one-line note]', tag: 'Liquor', draft: true },
+  { name: '[Gear rental]', sub: 'Skis, bikes, snowshoes', tag: 'Gear', draft: true },
 ];
+const picks = allPicks.filter((p) => SHOW_DRAFTS || !p.draft);
 
 export default function Explore() {
   const [season, setSeason] = useState<Season>(() => {
